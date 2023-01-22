@@ -1,11 +1,10 @@
 # FastApi101
 
-- [] MKDIR
-- [] PyENV
-- [] Configurando Poetry
-- [] Estrutura de Pastas
-- [] Instalar dependências
-- [] 
+- [ ] MKDIR
+- [ ] PyENV
+- [ ] Configurando Poetry
+- [ ] Estrutura de Pastas para CLI
+- [ ] Instalando depedências
 
 
 
@@ -80,3 +79,29 @@ Saída:
 
 ```
 
+## Estrutura de Pastas para CLI
+
+```
+FastApi101
+└───FastApi101
+    └───cli
+└───pyproject.toml
+└───README.md
+```
+
+```bash
+
+FastApi101$ mkdir -p FastApi101/cli
+
+```
+
+
+## Instalando dependências usando Poetry
+
+```bash
+
+(fastapi101-py3.10) $ poetry add typer[all]
+
+```
+
+Typer é lib para criar programas de linha de comando. 
