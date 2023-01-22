@@ -1,0 +1,23 @@
+{% extends 'layouts/main.html' %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('statics', path='css/index.css') }}">
+{% endblock %}
+
+
+{% block content %}
+    <h1>FastApi 101</h1>
+    <small>Index Page</small>
+    <h2>{{ name }}</h2>
+    <h3>{{ github }}</h3>
+    
+    <p>Um commit a cada funcionalidade!</p>
+
+    <small id="time"></small>
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{{ url_for('statics', path='js/indexPage.js') }}"></script>
+{% endblock %}
