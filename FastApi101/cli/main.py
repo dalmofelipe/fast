@@ -1,9 +1,20 @@
 from typer import Typer
 from rich import print
 from typing import Optional
+from subprocess import run
 
 
 cli = Typer(help="CLI FastApi101")
+
+
+@cli.command('runserver')
+def cmd_hello(
+    port: Optional[int|None] = 8000
+):
+    """
+    Inicia o WebServer do projeto por padrão na porta 8000
+    """
+    run(['uvicorn', 'FastApi101.web.main:webapp', f"--port={port}", '--reload'])
 
 
 @cli.command('hello')
