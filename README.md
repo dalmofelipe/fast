@@ -1,107 +1,36 @@
 # FastApi101
 
-- [ ] MKDIR
-- [ ] PyENV
-- [ ] Configurando Poetry
-- [ ] Estrutura de Pastas para CLI
-- [ ] Instalando depedências
 
-
-
-## MKDIR
+Clonar projeto
 
 ```bash
 
-# cria uma pasta para o projeto
-$ mkdir FastApi101
-
-# mudar o terminal para acessar a pasta criada
-$ cd FastApi101
-
-FastApi101$ _
+> git clone <link-do-repositorio>
 
 ```
 
-## PyENV
-
-### Instalação
-
-https://github.com/pyenv/pyenv
-
-### Comandos para configurar o interpretador Python
+Iniciar shell poetry
 
 ```bash
 
-# Exibe versoes
-$ pyenv versions
+> cd FastApi101
 
-Saída:
-  3.10.9 (set by C:\path\pyenv\version\)
-* 3.8.10
-  3.9.13
-
-# configura uma versão especifica para uso
-$ pyenv global 3.10.9
+> poetry shell
 
 ```
 
-## Configurando Poetry
+Instalar dependências
 
 ```bash
 
-$ poetry init
-
-Saída (Deve responder as perguntas): 
-This command will guide you through creating your pyproject.toml config.
-
-Package name [fastapi101]:
-Version [0.1.0]:  
-Description []:  
-Author [Dalmo Felipe <dalmo.felipe@gmail.com>, n to skip]:  
-License []:  
-Compatible Python versions [^3.10]:  
-
-Would you like to define your main dependencies interactively? (yes/no) [yes] no
-Would you like to define your development dependencies interactively? (yes/no) [yes] no
-
-Generated file
+> poetry install
 
 ```
 
-Após responder as perguntas acima, o arquivo `pyproject.toml` será criado na raiz da pasta do projeto. Depois desses passos, ative o ambiente virtual do poetry
+Rodar comando runserver da CLI
 
 ```bash
 
-$ poetry shell
-
-Saída:
-(fastapi101-py3.10)$ _
+> python -m pyweb
 
 ```
-
-## Estrutura de Pastas para CLI
-
-```
-FastApi101
-└───FastApi101
-    └───cli
-└───pyproject.toml
-└───README.md
-```
-
-```bash
-
-FastApi101$ mkdir -p FastApi101/cli
-
-```
-
-
-## Instalando dependências usando Poetry
-
-```bash
-
-(fastapi101-py3.10) $ poetry add typer[all]
-
-```
-
-Typer é lib para criar programas de linha de comando. 
