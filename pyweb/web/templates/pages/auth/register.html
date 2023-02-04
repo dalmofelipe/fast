@@ -1,0 +1,41 @@
+{% extends 'layouts/auth.html' %}
+
+{% block form_auth %}
+<form action="/auth/register" method="post" class="form-auth">
+
+    <header>
+        <h2>FastApi<strong>101</strong></h2>
+        <strong>CRIE SUA CONTA</strong>
+    </header>
+
+    <label for="name" class="form-label">
+        <small>Nome</small>
+        <input id="name" type="text" name="name" placeholder="Nome" required>
+    </label>
+
+    <label for="email">
+        <small>E-mail</small>
+        <input id="email" type="email" name="email" placeholder="Email" required>
+    </label>
+
+    <label for="password">
+        <small>Senha</small>
+        <input id="password" type="password" name="password" placeholder="Senha" required>
+    </label>
+
+    <label for="confirmpass">
+        <small>Confirme a Senha</small>
+        <input id="confirmpass" type="password" name="confirmpass" placeholder="Digite a senha novamente" required>
+    </label>
+
+    <div class="form-group">
+        <input type="submit" value="Criar Conta" class="btn btn-primary">
+        <input type="reset" value="Limpar" class="btn btn-secondary">
+    </div>
+
+    <div class="form-group">
+        <small>Já possui uma conta? <a href="/auth/login">Faça login para ENTRAR</a></small>
+    </div>
+
+</form>
+{% endblock %}
