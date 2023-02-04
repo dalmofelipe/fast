@@ -44,7 +44,7 @@ html, body {
     border: 1px solid rgba(0, 0, 0, 0.45);
     border-radius: 8px;
     padding: 0px 25px 25px 25px;
-    margin-top: 150px;
+    margin-top: 125px;
 }
 
 .form-auth header {
@@ -71,7 +71,7 @@ html, body {
 }
 
 .form-auth label input {
-    width: 300px;
+    width: 350px;
     padding: 10px;
     font-size: 15px;
 }
@@ -88,4 +88,12 @@ html, body {
 }
 .form-group small {
     text-align: center;
+}
+.form-validation-error {
+    font-size: 14px;
+    color: rgb(167, 31, 31);
+}
+.form-validation-success {
+    font-size: 14px;
+    color: rgb(31, 167, 83);
 }

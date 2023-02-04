@@ -2,6 +2,9 @@ from fastapi import APIRouter, Request, Form
 from fastapi.responses import HTMLResponse
 
 from pyweb.web import main
+from pyweb.core.user import save_user_on_db
+from pyweb.core.validations import user_input_form_data_is_valid
+
 
 routes = APIRouter(
     prefix="/auth"
@@ -18,6 +21,7 @@ def register_view(request: Request):
     context = {}
     context['request'] = request
     context['title'] = 'Crie Sua Conta'
+    context['errors'] = {}
     return main.templates.TemplateResponse('pages/auth/register.html', context=context)
 
 
@@ -31,13 +35,19 @@ def register_handle_post(
     name: str = Form(...),
     email: str = Form(...),
     password: str = Form(...),
-    confirmpass: str = Form(...),
+    confirm: str = Form(...)
 ):
     context = {}
     context['request'] = request
+    context['errors'] = {}
 
     if request.method == 'POST':
-        print(f"register data -> {name} | {email} | {password} | {confirmpass} ")
+        is_valid, errors = user_input_form_data_is_valid(name, email, password, confirm)
+        if is_valid:  
+            save_user_on_db(name, email, password)
+            context['created'] = "Usuário registrado com sucesso!"
+        else:
+            context['errors'] = errors
 
     return main.templates.TemplateResponse('pages/auth/register.html', context=context)
 

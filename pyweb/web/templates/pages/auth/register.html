@@ -6,26 +6,41 @@
     <header>
         <h2>FastApi<strong>101</strong></h2>
         <strong>CRIE SUA CONTA</strong>
+        {% if created %}
+        <span class="form-validation-success">{{ created }}</span>
+        {% endif %}
     </header>
 
     <label for="name" class="form-label">
         <small>Nome</small>
         <input id="name" type="text" name="name" placeholder="Nome" required>
+        {% if errors.name_error is defined %}
+        <span class="form-validation-error">{{ errors.name_error }}</span>
+        {% endif %}
     </label>
 
     <label for="email">
         <small>E-mail</small>
-        <input id="email" type="email" name="email" placeholder="Email" required>
+        <input id="email" type="text" name="email" placeholder="Email" required>
+        {% if errors.email_error is defined %}
+        <span class="form-validation-error">{{ errors.email_error }}</span>
+        {% endif %}
     </label>
 
     <label for="password">
         <small>Senha</small>
         <input id="password" type="password" name="password" placeholder="Senha" required>
+        {% if errors.password_error is defined %}
+        <span class="form-validation-error">{{ errors.password_error }}</span>
+        {% endif %}
     </label>
 
-    <label for="confirmpass">
+    <label for="confirm">
         <small>Confirme a Senha</small>
-        <input id="confirmpass" type="password" name="confirmpass" placeholder="Digite a senha novamente" required>
+        <input id="confirm" type="password" name="confirm" placeholder="Digite a senha novamente" required>
+        {% if errors.confirm_error is defined %}
+        <span class="form-validation-error">{{ errors.confirm_error }}</span>
+        {% endif %}
     </label>
 
     <div class="form-group">
