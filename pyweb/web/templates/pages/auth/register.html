@@ -1,7 +1,11 @@
 {% extends 'layouts/auth.html' %}
 
 {% block form_auth %}
-<form action="/auth/register" method="post" class="form-auth">
+<form
+    id="form-register"
+    class="form-auth"
+    action="/auth/register" 
+    method="post" >
 
     <header>
         <h2>FastApi<strong>101</strong></h2>
@@ -13,7 +17,12 @@
 
     <label for="name" class="form-label">
         <small>Nome</small>
-        <input id="name" type="text" name="name" placeholder="Nome" required>
+        <input 
+            id="name" 
+            type="text" 
+            name="name" 
+            value="{{ user_data.name }}" 
+            placeholder="Nome" required>
         {% if errors.name_error is defined %}
         <span class="form-validation-error">{{ errors.name_error }}</span>
         {% endif %}
@@ -21,7 +30,12 @@
 
     <label for="email">
         <small>E-mail</small>
-        <input id="email" type="text" name="email" placeholder="Email" required>
+        <input 
+            id="email" 
+            type="text" 
+            name="email" 
+            value="{{ user_data.email }}" 
+            placeholder="Email" required>
         {% if errors.email_error is defined %}
         <span class="form-validation-error">{{ errors.email_error }}</span>
         {% endif %}
@@ -29,17 +43,27 @@
 
     <label for="password">
         <small>Senha</small>
-        <input id="password" type="password" name="password" placeholder="Senha" required>
+        <input 
+            id="password" 
+            type="password" 
+            name="password" 
+            value="{{ user_data.password }}" 
+            placeholder="Senha" required>
         {% if errors.password_error is defined %}
         <span class="form-validation-error">{{ errors.password_error }}</span>
         {% endif %}
     </label>
 
-    <label for="confirm">
+    <label for="confirm_pass">
         <small>Confirme a Senha</small>
-        <input id="confirm" type="password" name="confirm" placeholder="Digite a senha novamente" required>
-        {% if errors.confirm_error is defined %}
-        <span class="form-validation-error">{{ errors.confirm_error }}</span>
+        <input 
+            id="confirm_pass" 
+            type="password" 
+            name="confirm_pass" 
+            value="{{ user_data.confirm_pass }}" 
+            placeholder="Digite a senha novamente" required>
+        {% if errors.confirm_pass_error is defined %}
+        <span class="form-validation-error">{{ errors.confirm_pass_error }}</span>
         {% endif %}
     </label>
 

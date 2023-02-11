@@ -2,7 +2,8 @@ from fastapi import APIRouter, Request, Form
 from fastapi.responses import HTMLResponse
 
 from pyweb.web import main
-from pyweb.core.user import save_user_on_db
+from pyweb.models.user import User
+from pyweb.repositories import user as user_repository
 from pyweb.core.validations import user_input_form_data_is_valid
 
 
@@ -22,6 +23,7 @@ def register_view(request: Request):
     context['request'] = request
     context['title'] = 'Crie Sua Conta'
     context['errors'] = {}
+    context['user_data'] = {}
     return main.templates.TemplateResponse('pages/auth/register.html', context=context)
 
 
@@ -35,19 +37,30 @@ def register_handle_post(
     name: str = Form(...),
     email: str = Form(...),
     password: str = Form(...),
-    confirm: str = Form(...)
+    confirm_pass: str = Form(...)
 ):
     context = {}
     context['request'] = request
     context['errors'] = {}
+    context['user_data'] = {}
 
     if request.method == 'POST':
-        is_valid, errors = user_input_form_data_is_valid(name, email, password, confirm)
-        if is_valid:  
-            save_user_on_db(name, email, password)
+        context['user_data'] = {
+            "name": name, 
+            "email": email, 
+            "password": '', 
+            "confirm_pass": ''
+        }
+        is_valid, errors = user_input_form_data_is_valid(name, email, password, confirm_pass)
+        context['errors'] = errors
+        user = user_repository.find_by_email(email)
+
+        if isinstance(user, User) and user.email == email:
+            context['errors']['email_error'] = f'O email "{email}" já esta em uso'
+        elif is_valid: 
+            user_repository.save(name, email, password)
+            context['user_data'] = {}
             context['created'] = "Usuário registrado com sucesso!"
-        else:
-            context['errors'] = errors
 
     return main.templates.TemplateResponse('pages/auth/register.html', context=context)
 

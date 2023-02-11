@@ -2,7 +2,6 @@ import re
 
 from typing import Dict, Union
 
-from pyweb.models.user import User
 
 # Regex simples para validar Emails
 REGEX_EMAIL = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
@@ -41,13 +40,13 @@ def user_input_form_data_is_valid(
         errors['name_error'] = "O nome de conter entre 3 e 20 caracteres"
 
     if not check_email(email):
-        errors['email_error'] = "Email inválido"
+        errors['email_error'] = f'O email "{email}" é inválido'
 
-    if len(password) < 8 or len(password) > 12:
-        errors['password_error'] = "Deve ter no minimo 8 e o maximo 12 caracteres"
+    if len(password) < 6 or len(password) > 12:
+        errors['password_error'] = "A senha deve ter entre 6 e 12 caracteres"
 
     if password != confirm:
-        errors['confirm_error'] = "As senhas não conferem"
+        errors['confirm_pass_error'] = "A senha e a confirmação estão diferentes"
 
     if len(errors) > 0:
         return False, errors

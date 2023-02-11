@@ -1,0 +1,11 @@
+
+
+###
+GET http://localhost:8000/api/v1/users?offset=0&limit=5
+
+
+###
+GET http://localhost:8000/api/v1/users/find?email=dalmo.felipe@gmail.com
+
+
+

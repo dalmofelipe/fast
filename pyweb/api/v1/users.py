@@ -1,4 +1,7 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
+
+from pyweb.repositories import user as repo_user
+from pyweb.core.validations import check_email
 
 
 routes = APIRouter(
@@ -8,21 +11,26 @@ routes = APIRouter(
 
 
 @routes.get('/')
-def root_users():
-    return {
-        "users": [
-            {
-                "name": "Dalmo",
-                "email": "dalmo@email.com",
-                "level": "admin"
-            },
-            {
-                "name": "Felipe",
-                "email": "felipe@email.com",
-                "level": "normal"
-            },
-        ],
-        "count": 2,
-        "docs": "http://localhost:8000/docs",
-        "redoc": "http://localhost:8000/redoc",
-    }
+def get_all(
+    page: int = Query(),
+    limit: int = Query()
+):
+    """
+    """
+    if page < 1 or limit < 5:
+        return None
+    offset = page * limit
+    users = repo_user.get_all(offset, limit)
+    return users
+
+
+@routes.get('/find')
+def find_by_email(
+    email:str = Query()
+):
+    """
+    """
+    if check_email(email):
+        user = repo_user.find_by_email(email)
+        return user
+    return None
