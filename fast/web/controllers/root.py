@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import RedirectResponse, HTMLResponse
 
-from pyweb.web import main
+from fast.web import main
 
 routes = APIRouter(
     prefix=""

@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Request, Form
 from fastapi.responses import HTMLResponse
 
-from pyweb.web import main
-from pyweb.models.user import User
-from pyweb.repositories import user as user_repository
-from pyweb.core.validations import user_input_form_data_is_valid
+from fast.web import main
+from fast.models.user import User
+from fast.repositories import user as user_repository
+from fast.core.validations import user_input_form_data_is_valid
 
 
 routes = APIRouter(

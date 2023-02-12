@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
 
-from pyweb.repositories import user as repo_user
-from pyweb.core.validations import check_email
+from fast.repositories import user as repo_user
+from fast.core.validations import check_email
 
 
 routes = APIRouter(

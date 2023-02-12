@@ -14,7 +14,7 @@ def cmd_hello(
     """
     Inicia o WebServer do projeto por padrão na porta 8000
     """
-    run(['uvicorn', 'pyweb.web.main:webapp', f"--port={port}", '--reload'])
+    run(['uvicorn', 'fast.web.main:webapp', f"--port={port}", '--reload'])
 
 
 @cli.command('hello')

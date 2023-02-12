@@ -1,4 +1,4 @@
-from pyweb.cli.main import cli
+from fast.cli.main import cli
 
 
 if __name__ == '__main__':

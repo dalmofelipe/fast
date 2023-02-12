@@ -1,7 +1,7 @@
 from sqlmodel import select
 
-from pyweb.database.config import get_session
-from pyweb.models.user import User
+from fast.database.config import get_session
+from fast.models.user import User
 
 
 def save(
