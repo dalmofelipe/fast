@@ -9,7 +9,7 @@ from fast.api.v2 import dashboard as dashboard_apiv2
 from fast.api.v2 import users as users_apiv2
 
 from fast.web.controllers.auth import routes as auth_routes
-from fast.web.controllers.root import routes as home_routes
+from fast.web.routes.main import web_routes
 
 
 webapp = FastAPI(help="WebAPP com FastApi101")
@@ -17,11 +17,14 @@ webapp.mount('/fast/web/statics', StaticFiles(directory='fast/web/statics'), nam
 templates = Jinja2Templates(directory='fast/web/templates')
 
 
+# Rotas das APIs
 webapp.include_router(index_apiv1.routes)
 webapp.include_router(users_apiv1.routes)
 
 webapp.include_router(dashboard_apiv2.routes)
 webapp.include_router(users_apiv2.routes)
 
+
+# Routas da Webapp
 webapp.include_router(auth_routes)
-webapp.include_router(home_routes)
+webapp.include_router(web_routes)

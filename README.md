@@ -37,10 +37,16 @@ Rodar comando runserver da CLI
 
 ### ToDo
 
-[ ] Criptografar senha com uuid, antes de persistir no banco
+[x] Criptografar senha com bcrypt, antes de persistir no banco
+
+[ ] Extrair Routes dos Controllers do modulo web
 
 [ ] Logar no sistema, exibindo uma tela de boa vindas apos logon
 
 [ ] Variaveis de ambiente
 
 [ ] Conexão com MySQL ou Postgres
+
+[ ] Refatorar código de registro de usuário, de modo que fique indempedente das interfaces api, cli e web
+
+[ ] Configurar o formatador de código blue
