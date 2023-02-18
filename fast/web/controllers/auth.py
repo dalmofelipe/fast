@@ -1,5 +1,4 @@
-from fastapi import APIRouter, Request, Form
-from fastapi.responses import HTMLResponse
+from fastapi import Request, Form
 
 from fast.web import main
 from fast.models.user import User
@@ -8,17 +7,6 @@ from fast.repositories import user as user_repository
 from fast.core.validations import user_input_form_data_is_valid
 
 
-routes = APIRouter(
-    prefix="/auth"
-)
-
-
-@routes.get(
-    "/register", 
-    name='register',
-    response_class=HTMLResponse, 
-    include_in_schema=False
-)
 def register_view(request: Request):
     context = {}
     context['request'] = request
@@ -28,12 +16,7 @@ def register_view(request: Request):
     return main.templates.TemplateResponse('pages/auth/register.html', context=context)
 
 
-@routes.post(
-    '/register',
-    response_class=HTMLResponse, 
-    include_in_schema=False
-)
-def register_handle_post(
+def register_handle(
     request: Request,
     name: str = Form(...),
     email: str = Form(...),
@@ -66,13 +49,7 @@ def register_handle_post(
     return main.templates.TemplateResponse('pages/auth/register.html', context=context)
 
 
-@routes.get(
-    "/login", 
-    name='login', 
-    response_class=HTMLResponse, 
-    include_in_schema=False
-)
-def login(
+def login_view(
     request: Request
 ):
     context = {}
@@ -81,12 +58,7 @@ def login(
     return main.templates.TemplateResponse('pages/auth/login.html', context=context)
 
 
-@routes.post(
-    "/login", 
-    response_class=HTMLResponse, 
-    include_in_schema=False
-)
-def login_handle_post(
+def login_handle(
     request: Request,
     email: str = Form(...),
     password: str = Form(...)

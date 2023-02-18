@@ -39,7 +39,9 @@ Rodar comando runserver da CLI
 
 [x] Criptografar senha com bcrypt, antes de persistir no banco
 
-[ ] Extrair Routes dos Controllers do modulo web
+[x] Extrair Routes dos Controllers do modulo WEB
+
+[ ] Extrair Routes do modulo API
 
 [ ] Logar no sistema, exibindo uma tela de boa vindas apos logon
 
@@ -50,3 +52,5 @@ Rodar comando runserver da CLI
 [ ] Refatorar código de registro de usuário, de modo que fique indempedente das interfaces api, cli e web
 
 [ ] Configurar o formatador de código blue
+
+[ ] Controlar Error 404

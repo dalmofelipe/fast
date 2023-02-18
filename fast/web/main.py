@@ -8,7 +8,6 @@ from fast.api.v1 import users as users_apiv1
 from fast.api.v2 import dashboard as dashboard_apiv2
 from fast.api.v2 import users as users_apiv2
 
-from fast.web.controllers.auth import routes as auth_routes
 from fast.web.routes.main import web_routes
 
 
@@ -26,5 +25,4 @@ webapp.include_router(users_apiv2.routes)
 
 
 # Routas da Webapp
-webapp.include_router(auth_routes)
 webapp.include_router(web_routes)
