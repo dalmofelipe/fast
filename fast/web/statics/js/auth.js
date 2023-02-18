@@ -5,7 +5,7 @@ function StartAuthenticate() {
     console.log('Script Auth carregado!');
 
     let inputName = document.getElementById('name')
-    let inputEmail = document.getElementById('email')
+    let inputEmail = document.getElementById('email_register')
     let inputPassword = document.getElementById('password')
     let inputConfirmPassword = document.getElementById('confirm_pass')
 
@@ -36,7 +36,7 @@ async function FindUserByEmail(email) {
 
     if(user) {
         let msg = `O email <strong>${email}</strong> já esta em uso`
-        addFieldErrorEmailAlreadeyExists('label[for="email"]', msg)
+        addFieldErrorEmailAlreadeyExists('label[for="email_register"]', msg)
     }
 }
 

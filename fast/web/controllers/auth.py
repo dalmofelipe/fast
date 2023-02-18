@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse
 
 from fast.web import main
 from fast.models.user import User
+from fast.core.password import hash_password
 from fast.repositories import user as user_repository
 from fast.core.validations import user_input_form_data_is_valid
 
@@ -58,7 +59,7 @@ def register_handle_post(
         if isinstance(user, User) and user.email == email:
             context['errors']['email_error'] = f'O email "{email}" já esta em uso'
         elif is_valid: 
-            user_repository.save(name, email, password)
+            user_repository.save(name, email, hash_password(password))
             context['user_data'] = {}
             context['created'] = "Usuário registrado com sucesso!"
 
