@@ -1,0 +1,18 @@
+
+### HOME
+GET http://localhost:8000/api/v1 HTTP/1.1
+
+
+### GET ALL
+GET http://localhost:8000/api/v1/users HTTP/1.1
+
+###
+GET http://localhost:8000/api/v1/users?limit=2&page=3 HTTP/1.1
+
+###
+GET http://localhost:8000/api/v1/users?limit=1&name=felipe&email=eli HTTP/1.1
+
+
+
+### FIND
+GET http://localhost:8000/api/v1/users/find?email=dalmo@email.com HTTP/1.1

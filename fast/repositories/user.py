@@ -1,20 +1,19 @@
-from sqlmodel import select
+from sqlmodel import select, text
 
+from fast.api.v1.controllers import user as user_controller
 from fast.database.config import get_session
 from fast.models.user import User
 
 
 def save(
-    name:str, 
-    email:str, 
-    password:str
+    name:str, email:str, password:str
 ):
     """
     """
     user = User()
     user.name = name 
     user.email = email
-    user.password = password # bcryptar essa senha!
+    user.password = password
     
     with get_session() as session:
         session.add(user)
@@ -22,14 +21,15 @@ def save(
 
 
 def get_all(
-    offset: int,
-    limit: int
+    offset:int, limit:int, name:str, email:str
 ):
     """
     """
     with get_session() as session:
-        query = select(User).offset(offset).limit(limit)
-        users = session.exec(query).all()
+        query = select(User).offset(offset).limit(limit)\
+            .where(text(f"name like '%{name}%'"))\
+            .where(text(f"email like '%{email}%'"))
+        users = session.exec(query).fetchall()
     return users
 
 
