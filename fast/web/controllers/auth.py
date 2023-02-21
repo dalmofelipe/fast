@@ -13,7 +13,9 @@ def register_view(request: Request):
     context['title'] = 'Crie Sua Conta'
     context['errors'] = {}
     context['user_data'] = {}
-    return main.templates.TemplateResponse('pages/auth/register.html', context=context)
+    return main.templates.TemplateResponse(
+        'pages/auth/register.html', context=context
+    )
 
 
 def register_handle(
@@ -21,7 +23,7 @@ def register_handle(
     name: str = Form(...),
     email: str = Form(...),
     password: str = Form(...),
-    confirm_pass: str = Form(...)
+    confirm_pass: str = Form(...),
 ):
     context = {}
     context['request'] = request
@@ -30,44 +32,50 @@ def register_handle(
 
     if request.method == 'POST':
         context['user_data'] = {
-            "name": name, 
-            "email": email, 
-            "password": '', 
-            "confirm_pass": ''
+            'name': name,
+            'email': email,
+            'password': '',
+            'confirm_pass': '',
         }
-        is_valid, errors = user_input_form_data_is_valid(name, email, password, confirm_pass)
+        is_valid, errors = user_input_form_data_is_valid(
+            name, email, password, confirm_pass
+        )
         context['errors'] = errors
         user = user_repository.find_by_email(email)
 
         if isinstance(user, User) and user.email == email:
-            context['errors']['email_error'] = f'O email "{email}" já esta em uso'
-        elif is_valid: 
+            context['errors'][
+                'email_error'
+            ] = f'O email "{email}" já esta em uso'
+        elif is_valid:
             user_repository.save(name, email, hash_password(password))
             context['user_data'] = {}
-            context['created'] = "Usuário registrado com sucesso!"
+            context['created'] = 'Usuário registrado com sucesso!'
 
-    return main.templates.TemplateResponse('pages/auth/register.html', context=context)
+    return main.templates.TemplateResponse(
+        'pages/auth/register.html', context=context
+    )
 
 
-def login_view(
-    request: Request
-):
+def login_view(request: Request):
     context = {}
     context['request'] = request
     context['title'] = 'Entrar'
-    return main.templates.TemplateResponse('pages/auth/login.html', context=context)
+    return main.templates.TemplateResponse(
+        'pages/auth/login.html', context=context
+    )
 
 
 def login_handle(
-    request: Request,
-    email: str = Form(...),
-    password: str = Form(...)
+    request: Request, email: str = Form(...), password: str = Form(...)
 ):
     context = {}
     context['request'] = request
     context['title'] = 'Entrar'
 
     if request.method == 'POST':
-        print(f"login data: {email} | {password}")
-    
-    return main.templates.TemplateResponse('pages/auth/login.html', context=context)
+        print(f'login data: {email} | {password}')
+
+    return main.templates.TemplateResponse(
+        'pages/auth/login.html', context=context
+    )

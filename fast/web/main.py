@@ -10,8 +10,12 @@ from fast.api.v2 import users as users_apiv2
 from fast.web.routes.main import web_routes
 
 
-webapp = FastAPI(help="WebAPP com FastApi101")
-webapp.mount('/fast/web/statics', StaticFiles(directory='fast/web/statics'), name='statics')
+webapp = FastAPI(help='WebAPP com FastApi101')
+webapp.mount(
+    '/fast/web/statics',
+    StaticFiles(directory='fast/web/statics'),
+    name='statics',
+)
 templates = Jinja2Templates(directory='fast/web/templates')
 
 

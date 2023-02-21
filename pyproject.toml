@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "fastapi101"
+name = "fast"
 version = "0.1.0"
 description = ""
 authors = ["Dalmo Felipe <dalmo.felipe@gmail.com>"]
@@ -17,9 +17,12 @@ sqlmodel = "^0.0.8"
 requests = "^2.28.2"
 bcrypt = "^4.0.1"
 
-
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
+blue = "^0.9.1"
+
+[tool.poetry.scripts]
+fast = 'fast.cli.main:cli'
 
 [build-system]
 requires = ["poetry-core"]
