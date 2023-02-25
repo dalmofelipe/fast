@@ -4,12 +4,12 @@ from fast.api.v1.serializers.user import UserInput
 
 from fast.core.password import hash_password
 from fast.core import validations
-from fast.database.config import get_sqlite_session
+from fast.database.config import get_mysql_session
 from fast.repositories.users import UserRepository
 
 
 routes = APIRouter()
-repository = UserRepository(get_sqlite_session)
+repository = UserRepository(get_mysql_session)
 
 PAGE_DEFAULT = 1
 LIMIT_DEFAULT = 5
