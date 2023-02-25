@@ -1,5 +1,6 @@
 from sqlmodel import select, text
 
+from fast.core.bcrypt import hash_password
 from fast.models.user import User
 from fast.repositories.base import Base
 
@@ -15,7 +16,7 @@ class UserRepository(Base):
         user = User()
         user.name = name
         user.email = email
-        user.password = password
+        user.password = hash_password(password)
 
         with self.get_session() as session:
             session.add(user)

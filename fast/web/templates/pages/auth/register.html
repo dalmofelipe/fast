@@ -21,9 +21,9 @@
             id="name" 
             type="text" 
             name="name" 
-            value="{{ user_data.name }}" 
+            value="{{ user.name }}" 
             placeholder="Nome" required>
-        {% if errors.name_error is defined %}
+        {% if errors.name is defined %}
         <span class="form-validation-error">{{ errors.name }}</span>
         {% endif %}
     </label>
@@ -34,9 +34,9 @@
             id="email_register" 
             type="text" 
             name="email" 
-            value="{{ user_data.email }}" 
+            value="{{ user.email }}" 
             placeholder="Email" required>
-        {% if errors.email_error is defined %}
+        {% if errors.email is defined %}
         <span class="form-validation-error">{{ errors.email }}</span>
         {% endif %}
     </label>
@@ -47,9 +47,9 @@
             id="password" 
             type="password" 
             name="password" 
-            value="{{ user_data.password }}" 
+            value="{{ user.password }}" 
             placeholder="Senha" required>
-        {% if errors.password_error is defined %}
+        {% if errors.password is defined %}
         <span class="form-validation-error">{{ errors.password }}</span>
         {% endif %}
     </label>
@@ -60,9 +60,9 @@
             id="confirm_pass" 
             type="password" 
             name="confirm_pass" 
-            value="{{ user_data.confirm_pass }}" 
+            value="{{ user.confirm_pass }}" 
             placeholder="Digite a senha novamente" required>
-        {% if errors.confirm_pass_error is defined %}
+        {% if errors.confirm_pass is defined %}
         <span class="form-validation-error">{{ errors.confirm_pass }}</span>
         {% endif %}
     </label>

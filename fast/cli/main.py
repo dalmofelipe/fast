@@ -8,7 +8,7 @@ cli = Typer(help='CLI FastApi101')
 
 
 @cli.command('runserver')
-def cmd_hello(port: Optional[int | None] = 8000):
+def cmd_runserver(port: Optional[int | None] = 8000):
     """
     Inicia o WebServer do projeto por padrão na porta 8000
     """

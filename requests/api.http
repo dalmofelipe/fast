@@ -9,8 +9,8 @@ POST http://localhost:8000/api/v1/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "PROD",
-    "email": "prod@email.com.br",
+    "name": "PROD_API",
+    "email": "prod.api@email.com.br",
     "password": "321321",
     "confirm_pass": "321321"
 }
@@ -21,5 +21,5 @@ GET http://localhost:8000/api/v1/users?limit=2&page=3 HTTP/1.1
 ###
 GET http://localhost:8000/api/v1/users?limit=1&name=felipe&email=eli HTTP/1.1
 
-### FIND
+###
 GET http://localhost:8000/api/v1/users/find?email=dalmo@email.com HTTP/1.1

@@ -1,4 +1,4 @@
-from fast.core.password import hash_password, check_password
+from fast.core.bcrypt import hash_password, check_password
 
 
 def test_check_valid_password():

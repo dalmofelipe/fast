@@ -2,7 +2,6 @@ from fastapi import APIRouter, Query, status, HTTPException
 
 from fast.api.v1.serializers.user import UserInput
 
-from fast.core.password import hash_password
 from fast.core import validations
 from fast.infra.database import get_session
 from fast.repositories.users import UserRepository
@@ -55,7 +54,7 @@ def route_save(user_input: UserInput):
         )
 
     if is_valid and len(errors) == 0:
-        repository.save(name, email, hash_password(password))
+        repository.save(name, email, password)
 
 
 

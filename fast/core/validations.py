@@ -7,7 +7,9 @@ from typing import Dict, Union
 REGEX_EMAIL = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
 
 
-def check_email(email):
+def check_email(
+    email
+):
     """ """
     if re.fullmatch(REGEX_EMAIL, email):
         return True
@@ -15,9 +17,11 @@ def check_email(email):
     return False
 
 
-def user_data(name, email, password, confirm) -> Union[bool, Dict]:
+def user_data(
+    name, email, password, confirm
+)   -> Union[bool, Dict]:
     """ 
-    Valida informações enviadas pelo formulário de registro da webapp
+    Valida informações de input do usuário
 
     A cada validação, adiciona um erro nomeado num dicionario de erros, caso
     infrinja a restrição
@@ -39,9 +43,7 @@ def user_data(name, email, password, confirm) -> Union[bool, Dict]:
         errors['password'] = 'A senha deve ter entre 6 e 12 caracteres'
 
     if password != confirm:
-        errors[
-            'confirm_pass'
-        ] = 'A senha e a confirmação estão diferentes'
+        errors['confirm_pass'] = 'A senha e a confirmação estão diferentes'
 
     if len(errors) > 0:
         return False, errors
