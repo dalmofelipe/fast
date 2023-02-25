@@ -7,6 +7,12 @@ from fast.api.v1.main import api_v1_routes
 from fast.api.v2 import dashboard as dashboard_apiv2
 from fast.api.v2 import users as users_apiv2
 
+from fast.infra.config import settings
+
+env = settings["ENVIRONMENT"]
+print(f'INFO:     {env} Env')
+
+
 from fast.web.routes.main import web_routes
 
 

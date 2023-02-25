@@ -9,10 +9,10 @@ POST http://localhost:8000/api/v1/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Dalmo",
-    "email": "dalmo@email.com",
-    "password": "123123",
-    "confirm_pass": "123123"
+    "name": "PROD",
+    "email": "prod@email.com.br",
+    "password": "321321",
+    "confirm_pass": "321321"
 }
 
 ###
