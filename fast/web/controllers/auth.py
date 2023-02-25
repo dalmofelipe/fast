@@ -4,7 +4,7 @@ from fast.web import main
 from fast.models.user import User
 from fast.core.password import hash_password
 from fast.repositories import user as user_repository
-from fast.core.validations import user_input_form_data_is_valid
+from fast.core import validations
 
 
 def register_view(request: Request):
@@ -37,7 +37,7 @@ def register_handle(
             'password': '',
             'confirm_pass': '',
         }
-        is_valid, errors = user_input_form_data_is_valid(
+        is_valid, errors = validations.user_data(
             name, email, password, confirm_pass
         )
         context['errors'] = errors

@@ -15,7 +15,7 @@ def check_email(email):
     return False
 
 
-def user_input_form_data_is_valid(name, email, password, confirm) -> Union[bool, Dict]:
+def user_data(name, email, password, confirm) -> Union[bool, Dict]:
     """ 
     Valida informações enviadas pelo formulário de registro da webapp
 
@@ -30,17 +30,17 @@ def user_input_form_data_is_valid(name, email, password, confirm) -> Union[bool,
     errors = {}
 
     if len(name) < 3 or len(name) > 20:
-        errors['name_error'] = 'O nome de conter entre 3 e 20 caracteres'
+        errors['name'] = 'O nome de conter entre 3 e 20 caracteres'
 
     if not check_email(email):
-        errors['email_error'] = f'O email "{email}" é inválido'
+        errors['email'] = f'O email "{email}" é inválido'
 
     if len(password) < 6 or len(password) > 12:
-        errors['password_error'] = 'A senha deve ter entre 6 e 12 caracteres'
+        errors['password'] = 'A senha deve ter entre 6 e 12 caracteres'
 
     if password != confirm:
         errors[
-            'confirm_pass_error'
+            'confirm_pass'
         ] = 'A senha e a confirmação estão diferentes'
 
     if len(errors) > 0:

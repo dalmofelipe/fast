@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from fast.api.v1.routes.main import api_v1_routes
+from fast.api.v1.main import api_v1_routes
 
 from fast.api.v2 import dashboard as dashboard_apiv2
 from fast.api.v2 import users as users_apiv2
