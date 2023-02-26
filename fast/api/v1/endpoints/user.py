@@ -32,28 +32,25 @@ def route_list_all(
 @routes.post('/', status_code=status.HTTP_201_CREATED)
 def route_save(user_input: UserInput):
     global repository
-    name = user_input.name
-    email = user_input.email
-    password = user_input.password
-    confirm_pass = user_input.confirm_pass
-
-    is_valid, errors = validations.user_data(
+    name, email, password, confirm_pass = user_input.get_properties()
+    
+    is_valid, errors = validations.check_input_user(
         name, email, password, confirm_pass
     )
     user_db = repository.find_by_email(email)
 
     if user_db or not is_valid:
-        errors['email'] = 'este email já esta em uso no sistema'
+        errors['email'] = 'E-mail já esta em uso no sistema'
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail={
-                'refs': 'api.v1.routes.user:route_save',
-                'msg': 'não foi possível salva usuário via api',
+                'refs': 'api.v1.endpoints.user:route_save',
+                'msg': 'Não foi possível salvar usuário via API',
                 'errors': errors,
             },
         )
 
-    if is_valid and len(errors) == 0:
+    if is_valid and len(errors) == 0 and not user_db:
         repository.save(name, email, password)
 
 

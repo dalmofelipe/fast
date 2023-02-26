@@ -10,17 +10,6 @@ from fast.web import main
 repository = UserRepository(get_session)
 
 
-def register_view(request: Request):
-    context = {}
-    context['request'] = request
-    context['title'] = 'Crie Sua Conta'
-    context['errors'] = {}
-    context['user'] = {}
-    return main.templates.TemplateResponse(
-        'pages/auth/register.html', context=context
-    )
-
-
 def register_handle(
     request: Request, name: str | None = '', email: str | None = '', 
     password: str | None = '', confirm_pass: str | None = ''
@@ -39,7 +28,7 @@ def register_handle(
             'password': '',
             'confirm_pass': '',
         }
-        is_valid, errors = validations.user_data(
+        is_valid, errors = validations.check_input_user(
             name, email, password, confirm_pass
         )
         context['errors'] = errors
@@ -70,7 +59,8 @@ def login_handle(
     if request.method == 'POST':
         user = repository.find_by_email(email)
         if user and bcrypt.check_password(
-            hash_password = user.password, password_text = password
+            password_text = password, 
+            hash_password = user.password 
         ):
             return RedirectResponse(
                 main.webapp.url_path_for(name='index'), 

@@ -15,7 +15,7 @@ def check_email(email):
     return False
 
 
-def user_data(name, email, password, confirm) -> Union[bool, Dict]:
+def check_input_user(name, email, password, confirm) -> Union[bool, Dict]:
     """
     Valida informações de input do usuário
 

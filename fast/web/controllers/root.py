@@ -16,4 +16,5 @@ def index(request: Request):
     context['github'] = 'github.com/dalmofelipe'
     context['describe'] = \
         'Essa view demonstra integração HTML, CSS e JavaScript'
-    return main.templates.TemplateResponse('pages/index.html', context=context)
+    return main.templates\
+        .TemplateResponse('pages/index.html', context=context)
