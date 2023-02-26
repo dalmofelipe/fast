@@ -7,8 +7,13 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('statics', path='images/favicon.ico') }}">
     <title>{{ title }} FastApi101</title>
     <link rel="stylesheet" href="{{ url_for('statics', path='css/auth.css') }}">
+    
+    <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/fontawesome.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/brands.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/solid.css') }}" >
 </head>
 <body>
+
     <div id="app">
     {% block form_auth %}{% endblock %}
     </div>

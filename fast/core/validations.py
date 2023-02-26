@@ -37,7 +37,7 @@ def user_data(
         errors['name'] = 'O nome de conter entre 3 e 20 caracteres'
 
     if not check_email(email):
-        errors['email'] = f'O email "{email}" é inválido'
+        errors['email'] = f'E-mail é inválido'
 
     if len(password) < 6 or len(password) > 12:
         errors['password'] = 'A senha deve ter entre 6 e 12 caracteres'

@@ -35,7 +35,7 @@ async function FindUserByEmail(email) {
         .catch(e => console.log(e))
 
     if(user) {
-        let msg = `O email <strong>${email}</strong> já esta em uso`
+        let msg = `O email já esta em uso no sistema`
         addFieldErrorEmailAlreadeyExists('label[for="email_register"]', msg)
     }
 }
