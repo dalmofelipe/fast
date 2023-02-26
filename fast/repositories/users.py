@@ -6,10 +6,8 @@ from fast.repositories.base import Base
 
 
 class UserRepository(Base):
-
     def __init__(self, session) -> None:
         Base.__init__(self, session)
-
 
     def save(self, name: str, email: str, password: str):
         """ """
@@ -21,7 +19,6 @@ class UserRepository(Base):
         with self.get_session() as session:
             session.add(user)
             session.commit()
-
 
     def get_all(self, offset: int, limit: int, name: str, email: str):
         """ """
@@ -36,7 +33,6 @@ class UserRepository(Base):
             users = session.exec(query).fetchall()
         return users
 
-
     def find_by_email(self, email: str):
         """ """
         with self.get_session() as session:
@@ -44,14 +40,12 @@ class UserRepository(Base):
             user = session.exec(statement).first()
             return user
 
-
     def find_by_name(self, name: str):
         """ """
         with self.get_session() as session:
             statement = select(User).where(User.name == name)
             user = session.exec(statement).first()
             return user
-
 
     def find_by_id(self, id: str):
         """ """

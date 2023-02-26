@@ -9,7 +9,7 @@ from fast.api.v2 import users as users_apiv2
 
 from fast.infra.config import settings
 
-env = settings["ENVIRONMENT"]
+env = settings['ENVIRONMENT']
 print(f'INFO:     {env} Env')
 
 

@@ -3,15 +3,15 @@ from pydantic import BaseModel
 
 class UserInput(BaseModel):
 
-    name: str 
+    name: str
     email: str
-    password: str 
+    password: str
     confirm_pass: str
 
 
 class UserOutput(BaseModel):
 
-    name: str 
+    name: str
     email: str
-    password: str 
+    password: str
     confirm_pass: str

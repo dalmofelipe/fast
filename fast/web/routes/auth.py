@@ -31,15 +31,13 @@ def register_handle_post(
     )
 
 
-
-@auth_routes.get(
-    '/login', name='login', include_in_schema=False
-)
+@auth_routes.get('/login', name='login', include_in_schema=False)
 @auth_routes.post(
     '/login', response_class=HTMLResponse, include_in_schema=False
 )
 def route_login_handle(
-    request: Request, email: str | None = Form(default=''), 
-    password: str | None = Form(default='')
+    request: Request,
+    email: str | None = Form(default=''),
+    password: str | None = Form(default=''),
 ):
     return auth_controller.login_handle(request, email, password)

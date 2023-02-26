@@ -3,7 +3,6 @@ from fastapi.responses import HTMLResponse
 
 from fast.web.controllers import root as root_controller
 
-
 root_routes = APIRouter(prefix='')
 
 

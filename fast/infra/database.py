@@ -12,7 +12,7 @@ STRING_CONN = ''
 ENVIRONMENT = settings['ENVIRONMENT']
 
 if ENVIRONMENT.upper() == 'PROD':
-    #STRING_CONN = settings.db.prod
+    # STRING_CONN = settings.db.prod
     DB_HOST = settings['DB_HOST']
     DB_PORT = settings['DB_PORT']
     DB_NAME = settings['DB_NAME']
