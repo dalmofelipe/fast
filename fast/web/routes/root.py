@@ -12,7 +12,8 @@ def route_index_login():
 
 
 @root_routes.get(
-    '/index', include_in_schema=False, response_class=HTMLResponse
+    '/index', name='index', include_in_schema=False, 
+    response_class=HTMLResponse
 )
 def route_index(request: Request):
     return root_controller.index(request)

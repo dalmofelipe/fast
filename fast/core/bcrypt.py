@@ -8,8 +8,9 @@ def hash_password(password_text: str) -> bytes:
     return hashed
 
 
-def check_password(hash_password: bytes, password_text: str) -> bool:
+def check_password(password_text: str, hash_password: bytes) -> bool:
     passwd = bytes(password_text, encoding='UTF-8')
-    if bcrypt.checkpw(passwd, hash_password):
+    hash = bytes(hash_password, encoding='UTF-8')
+    if bcrypt.checkpw(passwd, hash):
         return True
     return False
