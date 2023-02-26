@@ -35,7 +35,7 @@ def register_handle(
         user = repository.find_by_email(email)
 
         if isinstance(user, User) and user.email == email:
-            context['errors']['email'] = f'O email "{email}" já esta em uso'
+            context['errors']['email'] = f'E-mail já esta em uso'
         elif is_valid:
             repository.save(name, email, password)
             context['user'] = {}
@@ -62,9 +62,13 @@ def login_handle(
             password_text = password, 
             hash_password = user.password 
         ):
-            return RedirectResponse(
-                main.webapp.url_path_for(name='index'), 
-                status_code=status.HTTP_303_SEE_OTHER
+            context['user'] = user
+            # return RedirectResponse(
+            #     main.webapp.url_path_for(name='index'), 
+            #     status_code=status.HTTP_303_SEE_OTHER,
+            # )
+            return main.templates.TemplateResponse(
+                'pages/index.html', context=context
             )
 
     return main.templates.TemplateResponse(
