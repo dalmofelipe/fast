@@ -10,14 +10,15 @@
     <header>
         <i class="fa-brands fa-github-alt"></i>
         <h2>FastAPI <strong>101</strong></h2>
-        <strong>CRIE SUA CONTA</strong>
-        {% if created %}
-        <span class="form-validation-success">{{ created }}</span>
-        {% endif %}
     </header>
 
+    <strong>CRIE SUA CONTA</strong>
+    {% if created %}
+    <span class="form-validation-success">{{ created }}</span>
+    {% endif %}
+
     <label for="name" class="form-label">
-        <small>Nome</small>
+        <!-- <small>Nome</small> -->
         <input 
             id="name" 
             type="text" 
@@ -30,7 +31,7 @@
     </label>
 
     <label for="email_register">
-        <small>E-mail</small>
+        <!-- <small>E-mail</small> -->
         <input 
             id="email_register" 
             type="text" 
@@ -43,7 +44,7 @@
     </label>
 
     <label for="password">
-        <small>Senha</small>
+        <!-- <small>Senha</small> -->
         <input 
             id="password" 
             type="password" 
@@ -56,7 +57,7 @@
     </label>
 
     <label for="confirm_pass">
-        <small>Confirme a Senha</small>
+        <!-- <small>Confirme a Senha</small> -->
         <input 
             id="confirm_pass" 
             type="password" 

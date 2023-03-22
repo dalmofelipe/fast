@@ -13,7 +13,7 @@
 
 html, body {
     color: #555;
-    background-color: #019587;
+    background-color: #d2d8de;
 
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -65,7 +65,7 @@ html, body {
     justify-content: center;
 
     font-family: Poppins;
-    background-color: whitesmoke;
+    background-color: white;
     /* border: 1px solid rgba(0, 0, 0, 0.45); */
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.35);
     border-radius: 8px;
@@ -80,8 +80,10 @@ html, body {
     margin-bottom: 8px;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 .form-auth header i {
     color: #555;
@@ -102,20 +104,26 @@ html, body {
     margin-bottom: 10px;
 }
 .form-auth label input {
-    color: #555;
+    color: #555 !important;
+    background-color: whitesmoke;
     font-family: Poppins;
     width: 350px;
     padding: 13px;
     font-size: 14px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     margin: 5px 0px;
 }
+.form-auth label input:hover {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+.form-auth label input:focus {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    outline: none;
+}
 .form-group {
     width: 100%;
-    margin: 0px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin: 10px 0px;
 
     display: flex;
     flex-direction: column;
