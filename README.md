@@ -1,6 +1,20 @@
-## FastApi101
+![logo](./.github/assets/cover.png)
+
+<h1 align="center">FastAPI 101</h1>
+
+<p align="center">Sistema webapp simples para cadastro de usuários com FastAPI.</p>
+
 
 ### Preparar Ambiente
+
+Definir versão do Python com PyENV
+
+```bash
+> pyenv install --list
+> pyenv install 3.10.9
+> pyenv global 3.10.9
+> pyenv shell 3.10.9
+```
 
 Clonar projeto
 
@@ -44,18 +58,18 @@ Acesse a ajuda com os comandos:
 
 ### ToDo
 
-- [x] Criptografar senha com bcrypt, antes de persistir no banco
-- [x] Extrair Routes dos Controllers do modulo WEB
-- [x] Extrair Routes do modulo API
-- [x] Logar no sistema, exibindo uma tela de boa vindas apos logon
-- [ ] Proteger página index de usuários não logados com session ou bearer token
-- [ ] Session? dar um jeito de salvar dados do usuário logado no navegador
-- [ ] Retornar um Token JWT? api? garantindo autenticação do usuário
+- [ ] Controlar Error 404 com página pessonalizada
+- [ ] Refatorar registro de usuário, de modo que fique indempedente das interfaces api, cli e web
+- [ ] Refortar registro de usuário com confirmação via link para o email registrado
+- [ ] Criar layout da Dashboard administrativa
+- [ ] Session? Salvar dados do usuário logado no navegador
+- [ ] Gerar token JWT para comunicação com aplicação
+- [x] Cadastro de usuários
+- [x] Criptografia com Bcrypt de senha ao salvar no banco de dados
+- [x] Webapp e API Rest
 - [x] Variáveis de ambiente
 - [x] Conexão com MySQL ou Postgres
-- [ ] Refatorar código de registro de usuário, de modo que fique indempedente das interfaces api, cli e web
 - [x] Configurar o formatador de código blue
-- [ ] Controlar Error 404 com página pessonalizada
 
 
 ### Links
@@ -64,4 +78,5 @@ Acesse a ajuda com os comandos:
 - [Poetry - https://python-poetry.org/docs/](https://python-poetry.org/docs/)
 - [FastAPI - https://fastapi.tiangolo.com/](https://fastapi.tiangolo.com/)
 - [SQLModel - https://sqlmodel.tiangolo.com/](https://sqlmodel.tiangolo.com/)
-
+- [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [CSS GRID](https://css-tricks.com/snippets/css/a-guide-to-grid/)
