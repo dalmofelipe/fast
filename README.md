@@ -4,6 +4,10 @@
 
 <p align="center">Sistema webapp simples para cadastro de usuários com FastAPI.</p>
 
+<br>
+
+[PyENV](https://github.com/pyenv/pyenv) | [Poetry](https://python-poetry.org/docs/) | [FastAPI](https://fastapi.tiangolo.com/) | [SQLModel](https://sqlmodel.tiangolo.com/) | [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | [CSS GRID](https://css-tricks.com/snippets/css/a-guide-to-grid/)
+
 
 ### Preparar Ambiente
 
