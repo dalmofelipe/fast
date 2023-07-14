@@ -40,7 +40,9 @@ def register_handle(
             repository.save(name, email, password)
             context['user'] = {}
             context['created'] = 'Usuário registrado com sucesso!'
-
+        return main.templates.TemplateResponse(
+            'pages/auth/login.html', context=context
+        )
     return main.templates.TemplateResponse(
         'pages/auth/register.html', context=context
     )
