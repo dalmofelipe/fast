@@ -1,15 +1,15 @@
-![logo](./.github/assets/cover.png)
-
 <h1 align="center">FastAPI 101</h1>
 
 <p align="center">Sistema webapp simples para cadastro de usuários com FastAPI.</p>
 
-<br>
+<center>
 
 [PyENV](https://github.com/pyenv/pyenv) | [Poetry](https://python-poetry.org/docs/) | [FastAPI](https://fastapi.tiangolo.com/) | [SQLModel](https://sqlmodel.tiangolo.com/) | [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | [CSS GRID](https://css-tricks.com/snippets/css/a-guide-to-grid/)
 
+</center>
 
-### Preparar Ambiente
+
+### Configurando Ambiente
 
 Definir versão do Python com PyENV
 
@@ -59,18 +59,3 @@ Acesse a ajuda com os comandos:
 > fast --help
 > fast runserver --help
 ```
-
-### ToDo
-
-- [ ] Controlar Error 404 com página pessonalizada
-- [ ] Refatorar registro de usuário, de modo que fique indempedente das interfaces api, cli e web
-- [ ] Refortar registro de usuário com confirmação via link para o email registrado
-- [ ] Criar layout da Dashboard administrativa
-- [ ] Session? Salvar dados do usuário logado no navegador
-- [ ] Gerar token JWT para comunicação com aplicação
-- [x] Cadastro de usuários
-- [x] Criptografia com Bcrypt de senha ao salvar no banco de dados
-- [x] Webapp e API Rest
-- [x] Variáveis de ambiente
-- [x] Conexão com MySQL ou Postgres
-- [x] Configurar o formatador de código blue

@@ -6,7 +6,7 @@ authors = ["Dalmo Felipe <dalmo.felipe@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 typer = {extras = ["all"], version = "^0.7.0"}
 pyclean = "^2.4.0"
 fastapi = "^0.89.1"
