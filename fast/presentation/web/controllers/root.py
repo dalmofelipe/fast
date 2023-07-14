@@ -1,7 +1,7 @@
 from fastapi import Request
 from fastapi.responses import RedirectResponse
 
-from fast.web import main
+from fast.presentation.web import main
 
 
 def index_login():

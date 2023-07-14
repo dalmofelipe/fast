@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request, Form
 from fastapi.responses import HTMLResponse
 
-from fast.web.controllers import auth as auth_controller
+from fast.presentation.web.controllers import auth as auth_controller
 
 auth_routes = APIRouter(prefix='/auth')
 

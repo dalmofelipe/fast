@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Query, status, HTTPException
 
-from fast.api.v1.serializers.user import UserInput
+from fast.presentation.api.v1.serializers.user import UserInput
 
 from fast.core import validations
 from fast.infra.database import get_session
-from fast.repositories.users import UserRepository
+from fast.domain.repositories.users import UserRepository
 
 
 routes = APIRouter()

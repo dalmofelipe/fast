@@ -1,8 +1,8 @@
 from sqlmodel import select, text
 
 from fast.core.bcrypt import hash_password
-from fast.models.user import User
-from fast.repositories.base import Base
+from fast.domain.models.user import User
+from fast.domain.repositories.base import Base
 
 
 class UserRepository(Base):

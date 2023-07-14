@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from fast.api.v1.endpoints import index
-from fast.api.v1.endpoints import user
+from fast.presentation.api.v1.endpoints import index
+from fast.presentation.api.v1.endpoints import user
 
 api_v1_routes = APIRouter(prefix='/api/v1', tags=['APIv1'])
 

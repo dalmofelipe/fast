@@ -1,7 +1,7 @@
 from sqlmodel import Session, create_engine
 from sqlmodel.sql.expression import Select, SelectOfScalar
 
-from fast.models import user
+from fast.domain.models import user
 from fast.infra.config import settings
 
 SelectOfScalar.inherit_cache = True

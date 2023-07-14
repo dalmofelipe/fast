@@ -12,7 +12,7 @@ def cmd_runserver(port: Optional[int | None] = 8000):
     """
     Inicia o WebServer do projeto por padrão na porta 8000
     """
-    run(['uvicorn', 'fast.web.main:webapp', f'--port={port}', '--reload'])
+    run(['uvicorn', 'fast.presentation.web.main:webapp', f'--port={port}', '--reload'])
 
 
 @cli.command('hello')
