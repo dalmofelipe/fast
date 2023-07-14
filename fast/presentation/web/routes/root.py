@@ -7,7 +7,9 @@ root_routes = APIRouter(prefix='')
 
 
 @root_routes.get(
-    '/', name='index', include_in_schema=False, 
+    '/', 
+    name='index', 
+    include_in_schema=False, 
     response_class=HTMLResponse
 )
 def route_index(request: Request):

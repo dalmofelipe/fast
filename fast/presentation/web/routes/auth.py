@@ -7,7 +7,8 @@ auth_routes = APIRouter(prefix='/auth')
 
 
 @auth_routes.get(
-    '/register', name='register', response_class=HTMLResponse, 
+    '/register', name='register', 
+    response_class=HTMLResponse, 
     include_in_schema=False
 )
 @auth_routes.post(

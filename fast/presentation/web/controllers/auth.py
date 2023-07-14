@@ -1,7 +1,6 @@
-from fastapi import Request, Form, status
-from fastapi.responses import RedirectResponse
+from fastapi import Request
 
-from fast.core import validations, bcrypt
+from fast.core import bcrypt, validations
 from fast.infra.database import get_session
 from fast.domain.models.user import User
 from fast.domain.repositories.users import UserRepository
@@ -11,8 +10,11 @@ user_repo = UserRepository(get_session)
 
 
 def register_handle(
-    request: Request, name: str | None = '', email: str | None = '', 
-    password: str | None = '', confirm_pass: str | None = ''
+    request: Request, 
+    name: str | None = '', 
+    email: str | None = '', 
+    password: str | None = '', 
+    confirm_pass: str | None = ''
 ):
     global user_repo
 
@@ -50,7 +52,9 @@ def register_handle(
 
 
 def login_handle(
-    request: Request, email: str | None = '', password: str | None = ''
+    request: Request, 
+    email: str | None = '', 
+    password: str | None = ''
 ):
     global user_repo
 

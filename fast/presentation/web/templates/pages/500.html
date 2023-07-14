@@ -1,0 +1,26 @@
+{% extends 'layouts/main.html' %}
+
+
+{% block styles %}
+<style>
+.error500 {
+    width: 100%;
+    min-height: 50vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="error500">
+    <h1>500 Internal Server Error - Deu ruim!</h1>
+
+    <a href="{{ url_for('index') }}">Voltar a Home</a>    
+</div>
+{% endblock %}
