@@ -1,12 +1,15 @@
 <h1 align="center">FastAPI 101</h1>
 
-<p align="center">Sistema webapp simples para cadastro de usuários com FastAPI.</p>
+<p align="center">Sistema WebApp simples para cadastro de usuários com FastAPI.</p>
 
-<center>
-
-[PyENV](https://github.com/pyenv/pyenv) | [Poetry](https://python-poetry.org/docs/) | [FastAPI](https://fastapi.tiangolo.com/) | [SQLModel](https://sqlmodel.tiangolo.com/) | [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | [CSS GRID](https://css-tricks.com/snippets/css/a-guide-to-grid/)
-
-</center>
+<p align="center">
+    <a target="_blank" href="https://github.com/pyenv/pyenv">PyENV</a> | 
+    <a target="_blank" href="https://python-poetry.org/docs">Poetry</a> | 
+    <a target="_blank" href="https://fastapi.tiangolo.com">FastAPI</a> | 
+    <a target="_blank" href="https://sqlmodel.tiangolo.com">SQLModel</a> | 
+    <a target="_blank" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox">CSS Flex</a> | 
+    <a target="_blank" href="https://css-tricks.com/snippets/css/a-guide-to-grid">CSS Grid</a>
+</p>
 
 
 ### Configurando Ambiente
@@ -15,9 +18,9 @@ Definir versão do Python com PyENV
 
 ```bash
 > pyenv install --list
-> pyenv install 3.10.9
-> pyenv global 3.10.9
-> pyenv shell 3.10.9
+> pyenv install 3.11.4
+> pyenv global 3.11.4
+> pyenv shell 3.11.4
 ```
 
 Clonar projeto
@@ -41,17 +44,17 @@ Instalar dependências do `pyproject.toml`
 
 ### Executando o Projeto
 
-Criar arquivo `.env` na raiz do projeto. Configure `ENVIRONMENT=DEV`, o sqlite irá gerar o arquivo de dados `database.sqlite` no diretorio `fast/infra/`. Para modificar o local desse arquivo , edite no `.env` a variável `DB_DEV=sqlite:///novo/caminho/do/arquivo/database.sqlite`.
+```bash
+> fast runserver
+```
 
-Para iniciar o servidor, usar o comando runserver da CLI
+O servidor ouvirá a porta 8000 em http://localhost:8000
+
+A porta pode ser modificada informando a option `--port=3333`.
 
 ```bash
 > fast runserver --port=3333
 ```
-
-O server ficará escultando na porta 3333, no host http://localhost:3333.
-
-Por padrão o app esculta a porta 8000, `--port=3333` é opcional.
 
 Acesse a ajuda com os comandos:
 
