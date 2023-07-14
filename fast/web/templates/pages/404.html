@@ -1,9 +1,26 @@
 {% extends 'layouts/main.html' %}
 
+
+{% block styles %}
+<style>
+.error400 {
+    width: 100%;
+    min-height: 50vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+</style>
+{% endblock %}
+
+
 {% block content %}
-
-<h1>404 Not Found - Página não encontrada!</h1>
-
-<a href="{{ url_for('index') }}">Voltar a Home</a>
-
+<div class="error400">
+    <h1>404 Not Found - Página não encontrada!</h1>
+    
+    <a href="{{ url_for('index') }}">Voltar a Home</a>
+</div>
 {% endblock %}

@@ -6,7 +6,10 @@ from fast.web.controllers import root as root_controller
 root_routes = APIRouter(prefix='')
 
 
-@root_routes.get('/', include_in_schema=False)
+@root_routes.get(
+    '/', 
+    include_in_schema=False
+)
 def route_index_login():
     return root_controller.index_login()
 

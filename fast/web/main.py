@@ -12,13 +12,20 @@ print(f'INFO:     {env} Env')
 
 from fast.web.routes.main import web_routes
 
+
 # Handlers
-async def not_found_error(request: Request, exc: HTTPException):
+async def not_found_error(
+    request: Request, 
+    exc: HTTPException
+):
     return templates.TemplateResponse(
         'pages/404.html', { 'request': request }, status_code=404
     )
 
-async def internal_error(request: Request, exc: HTTPException):
+async def internal_error(
+    request: Request, 
+    exc: HTTPException
+):
     return templates.TemplateResponse(
         'pages/500.html', { 'request': request }, status_code=500
     )
