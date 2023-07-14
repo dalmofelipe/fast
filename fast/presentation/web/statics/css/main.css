@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+@font-face {
+    font-family: Poppins;
+    src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    color: #555;
+    background-color: #d2d8de;
+
+    font-family: Poppins;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-size: 16px;
+}
