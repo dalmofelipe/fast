@@ -11,6 +11,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --fg-primary: #009485;
+    --fg-secondary: #0e685f;
+    --fg-dark: #343434;
+    --max-width: 1366px;
+}
+
 html, body {
     color: #555;
     background-color: #d2d8de;

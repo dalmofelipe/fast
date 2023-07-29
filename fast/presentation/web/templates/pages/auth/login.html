@@ -1,6 +1,13 @@
-{% extends 'layouts/auth.html' %}
+{% extends 'layouts/main.html' %}
 
-{% block form_auth %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('statics', path='css/auth.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<div id="app">
 <form action="/auth/login" method="post" class="form-auth">
 
     <header>
@@ -29,4 +36,5 @@
     </div>
 
 </form>
+</div>
 {% endblock %}
