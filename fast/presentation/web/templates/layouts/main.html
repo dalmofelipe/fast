@@ -13,11 +13,14 @@
     
     {% block styles %}{% endblock %}
     <link rel="stylesheet" href="{{ url_for('statics', path='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('statics', path='css/footer.css') }}">
 </head>
 <body>
 {% include 'layouts/fragments/header.html' %}
 
 {% block content %}{% endblock %}
+
+{% include 'layouts/fragments/footer.html' %}
 
 <script src="{{ url_for('statics', path='js/global.js') }}"></script>
 {% block scripts %}{% endblock %}

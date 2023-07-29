@@ -36,12 +36,12 @@ async function FindUserByEmail(email) {
 
     if(user) {
         let msg = `O email já esta em uso no sistema`
-        addFieldErrorEmailAlreadeyExists('label[for="email_register"]', msg)
+        addFieldErrorEmailAlreadyExists('label[for="email_register"]', msg)
     }
 }
 
 
-function addFieldErrorEmailAlreadeyExists(seletor, msg) {
+function addFieldErrorEmailAlreadyExists(seletor, msg) {
     let label = document.querySelector(seletor)
     let span = document.createElement('span')
 

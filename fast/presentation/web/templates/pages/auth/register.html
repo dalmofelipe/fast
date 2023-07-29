@@ -1,6 +1,13 @@
-{% extends 'layouts/auth.html' %}
+{% extends 'layouts/main.html' %}
 
-{% block form_auth %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('statics', path='css/auth.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<div id="app">
 <form
     id="form-register"
     class="form-auth"
@@ -79,4 +86,10 @@
     </div>
 
 </form>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{{ url_for('statics', path='js/auth.js') }}"></script>
 {% endblock %}

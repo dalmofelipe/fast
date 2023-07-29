@@ -1,8 +1,3 @@
-:root {
-    --fg-primary: #019587;
-    --fg-secondary: #0e685f;
-    --fg-dark: #343434;
-}
 
 .homepage {
     width: 100%;
@@ -10,22 +5,48 @@
     font-family: Poppins;
     font-weight: 400;
     margin: 25px 0px;
-    margin-top: 100px;
+    margin-top: 150px;
+}
+@media (max-width: 800px) {
+    .homepage {
+        margin-top: 200px;
+    }
 }
 .homepage header {
-    color: var(--fg-dark);
+    color: #777;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 .homepage header i {
     color: var(--fg-dark);
-    font-size: 8rem;
+    font-size: 6.5rem;
+}
+.homepage header h1 {
+    color: var(--fg-dark);
 }
 .homepage header h1 span {
-    color: var(--fg-primary);
+    color: var(--fg-secondary);
+}
+.homepage header > span {
+    display: block;
+    color: #777;
+    font-size: 1.5rem;
 }
 
-.homepage main {
+.homepage > main {
     color: #777;
-    margin: 20px 0px;
+    max-width: 1366px;
+    margin: 100px auto;
+
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 .homepage main .userlogged {
     color: #555;
@@ -52,4 +73,68 @@ small#time {
     color: var(--fg-dark);
     font-size: 15px;
     font-weight: bold;
+}
+
+.git-into {
+    max-width: 30%;
+}
+
+.techs-container {
+    width: 100%;
+    max-width: var(--max-width);
+    padding: 0px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 1300px) {
+    .techs-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+@media (max-width: 1100px) {
+    .techs-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+}
+@media (max-width: 750px) {
+    .techs-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+    }
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: white;
+    /* border: 1px solid rgba(0, 0, 0, 0.45); */
+    /* box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3); */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 25px;
+    margin: 0px;
+}
+.card > header { 
+    display: flex;
+    font-size: 2rem;
+}
+.card > main { 
+    font-size: 0.95rem;
+}
+.card > footer { 
+    font-size: 0.8rem;
+}
+
+.userlogged {
+    color: var(--fg-secondary);
 }
