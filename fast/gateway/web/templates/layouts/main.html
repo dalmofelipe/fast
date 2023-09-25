@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('statics', path='images/favicon.ico') }}">
+    <title>{{ title or 'FastApi101' }}</title>
+    <link rel="stylesheet" href="{{ url_for('statics', path='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/fontawesome.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/brands.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/solid.css') }}" >
+    
+    {% block styles %}{% endblock %}
+    <link rel="stylesheet" href="{{ url_for('statics', path='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('statics', path='css/footer.css') }}">
+</head>
+<body>
+{% include 'layouts/fragments/header.html' %}
+
+<div class="maincontent">
+{% block content %}{% endblock %}
+</div>
+
+{% include 'layouts/fragments/footer.html' %}
+
+<script src="{{ url_for('statics', path='js/global.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+@font-face {
+    font-family: Poppins;
+    src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --hover-green: #009485;
+    --green: #0e685f;
+    --dark: #343434;
+    --light: #d2d8de;
+    --max-width: 1366px;
+}
+
+html, body {
+    color: #555;
+    background-color: #d2d8de;
+
+    font-family: Poppins;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-size: 16px;
+}
+
+.maincontent {
+    margin-top: 76px;
+    width: 100%;
+}
+
+
+/* BANNER  BANNER  BANNER  BANNER  BANNER  BANNER */
+.banner {
+    color: white;
+    background-color: var(--green);
+}
+.banner-container {
+    display: flex;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 60px 30px;
+}
+.col-left > i {
+    font-size: 3rem;
+}
+@media (max-width: 1100px) {
+    .banner-container {
+        flex-direction: column;
+    }
+}

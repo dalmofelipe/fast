@@ -8,14 +8,14 @@ def test_check_valid_password():
     assert check is True
 
 
-def test_check_invalid_password():
-    pw_original: str = 'dalmo123'
-    hash_original: bytes = hash_password(pw_original)
+def test_check_not_valid_password():
+    pw_primary: str = 'dalmo123'
+    hash_primary: bytes = hash_password(pw_primary)
 
-    pw_incorrect: str = 'dalmo123123'
-    hash_incorrect: bytes = hash_password(pw_incorrect)
+    pw_secondary: str = '321dalmo'
+    hash_secondary: bytes = hash_password(pw_secondary)
     
-    original: bool = check_password(pw_original, hash_incorrect)
-    incorrect: bool = check_password(pw_incorrect, hash_original)
-    # as duas tem que esta False
-    assert original == incorrect
+    primary: bool = check_password(pw_primary, hash_secondary)
+    secondary: bool = check_password(pw_secondary, hash_primary)
+    # as duas devem ser false
+    assert primary == secondary and hash_primary != hash_secondary

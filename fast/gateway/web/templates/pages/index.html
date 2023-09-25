@@ -1,0 +1,100 @@
+{% extends 'layouts/main.html' %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('statics', path='css/index.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<div class="homepage">
+
+    <header class="banner">
+        <div class="banner-container">
+            <div class="col-left">
+                <!-- <i class="fa-brands fa-github-alt"></i> -->
+                <h1>Fast<span>API</span> 101</h1>
+                
+                <h2>Sistema de gestão, autenticação e permissionamento de usuários</h2>
+                <p>Um commit a cada funcionalidade!</p>
+                <p>{{ describe }}</p>
+                <small id="time"></small>
+            </div>
+            
+            <div class="col-right">
+                <div class="userlogged">
+                    {% if user is defined %}
+                    <h3><strong>Olá</strong> {{ user.name }}, tudo bom?</h3>
+                    <p><strong>E-mail</strong>: {{ user.email }}</p>
+                    {% else %}
+                    <p>Nenhum usuário logado no momento! <br> <a href="{{ url_for('login') }}">Clique aqui para Entrar</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="homepage-content"> 
+        <section class="techs-container">
+            <article class="card">
+                <header>🌐 WebApp</header>
+                <main>Interação com usuário</main>
+                <footer>#WebApp #Monolito</footer>
+            </article>
+            
+            <article class="card">
+                <header>🧱 Jinja2</header>
+                <main>Templating</main>
+                <footer>#ninja</footer>
+            </article>
+
+            <article class="card">
+                <header>🖧 API Rest</header>
+                <main>Integração via API Rest. </main>
+                <footer>#fechApiJS</footer>
+            </article>
+            
+            <article class="card">
+                <header>🚀 Typer CLI</header>
+                <main>Gestão via comando fast</main>
+                <footer>$ fast --help</footer>
+            </article>
+                  
+            <article class="card">
+                <header>🐍 Python</header>
+                <main></main>
+                <footer>#friendDoDev</footer>
+            </article>
+
+            <article class="card">
+                <header>⚡FastAPI</header>
+                <main>API Rest de qualidade!</main>
+                <footer>#GET #POST #PUT #DELETE</footer>
+            </article>
+            
+            <article class="card">
+                <header>💽 Databases</header>
+                <main>Pronto para conectar ao <br> MySQL ou Postgres</main>
+                <footer>#ORM #SQLModel</footer>
+            </article>
+
+            <article class="card">
+                <header>Javascript💛</header>
+                <main>VanilaJS</main>
+                <footer>#ReactJS > #+JQuery #-DOM</footer>
+            </article>
+
+            <article class="card">
+                <header>Flex ❤️ Grid</header>
+                <main>No Floats No Pain</main>
+                <footer>#noFloat #noClear</footer>
+            </article>
+        </section>
+    </main>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{{ url_for('statics', path='js/indexPage.js') }}"></script>
+{% endblock %}

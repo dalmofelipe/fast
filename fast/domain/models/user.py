@@ -12,3 +12,7 @@ class User(SQLModel, table=True):
     email: str = Field(unique=True)
     password: str
     created_at: datetime = Field(default_factory=datetime.now)
+
+    @classmethod
+    def is_valid():
+        ...

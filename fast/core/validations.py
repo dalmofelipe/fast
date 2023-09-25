@@ -41,7 +41,6 @@ def check_input_user(name, email, password, confirm) -> Union[bool, Dict]:
     if password != confirm:
         errors['confirm_pass'] = 'A senha e a confirmação estão diferentes'
 
-    if len(errors) > 0:
-        return False, errors
+    if len(errors) > 0: return False, errors
 
     return True, {}
