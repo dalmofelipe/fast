@@ -11,9 +11,18 @@
                 <li><a href="{{ url_for('index') }}">inicio</a></li>
                 <li><a href="#">técnicas</a></li>
                 <li><a href="#">contato</a></li>
-                <li style="margin-left: auto;" ><a href="{{ url_for('login') }}">login</a></li>
+            </ul>
+
+            <ul>
+                {% if 'email' in user %}
+                <small><strong>Olá</strong> {{ user.name }}, Bem vindo(a)!</small>
+                <li><a href="{{ url_for('index') }}">sair</a></li>
+                {% elif endpoint == 'login' %}
+                <li><a href="{{ url_for('register') }}">Resgistrar</a></li>
+                {% else %}
+                <li><a href="{{ url_for('login') }}">login</a></li>
+                {% endif %}
             </ul>
         </div>
-
     </div>
 </header>
