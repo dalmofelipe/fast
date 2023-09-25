@@ -1,6 +1,27 @@
+from abc import ABC, abstractmethod
+from datetime import datetime
 from typing import Optional
 from sqlmodel import SQLModel, Field
-from datetime import datetime
+
+from fast.core import bcrypt
+
+
+class IUserRepository(ABC):
+
+    @abstractmethod 
+    def save(self, name: str, email: str, password: str): pass
+
+    @abstractmethod 
+    def get_all(self, offset: int, limit: int, name: str, email: str): pass
+
+    @abstractmethod 
+    def find_by_email(self, email: str): pass
+
+    @abstractmethod 
+    def find_by_name(self, name: str): pass
+
+    @abstractmethod 
+    def find_by_id(self, id: str): pass
 
 
 class User(SQLModel, table=True):
@@ -14,5 +35,18 @@ class User(SQLModel, table=True):
     created_at: datetime = Field(default_factory=datetime.now)
 
     @classmethod
-    def is_valid():
-        ...
+    def is_valid(name, email, password, confirm):
+        errors = {}
+
+        if len(name) < 3 or len(name) > 20:
+            errors['name'] = 'O nome de conter entre 3 e 20 caracteres'
+        if not bcrypt.check_email(email):
+            errors['email'] = f'E-mail é inválido'
+        if len(password) < 6 or len(password) > 12:
+            errors['password'] = 'A senha deve ter entre 6 e 12 caracteres'
+        if password != confirm:
+            errors['confirm_pass'] = 'A senha e a confirmação estão diferentes'
+
+        if len(errors) > 0: return False, errors
+
+        return True, {}

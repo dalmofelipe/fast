@@ -3,7 +3,7 @@ from fastapi import Request
 from fast.core import bcrypt, validations
 from fast.infra.database import get_session
 from fast.domain.models.user import User
-from fast.domain.repositories.users import UserRepository
+from fast.adapters.repositories.users import UserRepository
 from fast.gateway.web import main
 
 user_repo = UserRepository(get_session)

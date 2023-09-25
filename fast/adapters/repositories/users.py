@@ -1,11 +1,12 @@
 from sqlmodel import select, text
 
+from fast.adapters.repositories.base import Base
 from fast.core.bcrypt import hash_password
-from fast.domain.models.user import User
-from fast.domain.repositories.base import Base
+from fast.domain.models.user import User, IUserRepository
 
 
-class UserRepository(Base):
+class UserRepository(Base, IUserRepository):
+
     def __init__(self, session) -> None:
         Base.__init__(self, session)
 

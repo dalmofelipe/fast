@@ -4,7 +4,7 @@ from fast.gateway.api.v1.serializers.user import UserInput
 
 from fast.core import validations
 from fast.infra.database import get_session
-from fast.domain.repositories.users import UserRepository
+from fast.adapters.repositories.users import UserRepository
 
 
 routes = APIRouter()
