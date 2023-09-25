@@ -33,7 +33,6 @@ html, body {
     width: 100%;
 }
 
-
 /* BANNER  BANNER  BANNER  BANNER  BANNER  BANNER */
 .banner {
     color: white;
@@ -45,8 +44,23 @@ html, body {
     margin: 0 auto;
     padding: 60px 30px;
 }
-.col-left > i {
-    font-size: 3rem;
+.col-left {
+    width: 70%;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+.col-right {
+    width: 100%;
+    font-size: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 @media (max-width: 1100px) {
     .banner-container {

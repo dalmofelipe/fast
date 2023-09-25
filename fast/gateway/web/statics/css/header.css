@@ -63,6 +63,9 @@
 
 .menu {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .menu ul {
     list-style: none;

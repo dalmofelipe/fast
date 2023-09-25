@@ -1,4 +1,5 @@
-from fastapi import Request
+from fastapi import Request, status
+from fastapi.responses import RedirectResponse
 
 from fast.core import bcrypt, validations
 from fast.infra.database import get_session
@@ -20,6 +21,7 @@ def register_handle(
 
     context = {}
     context['request'] = request
+    context['endpoint'] = str(request.url).split('/')[-1]
     context['errors'] = {}
     context['user'] = {}
 
@@ -46,6 +48,7 @@ def register_handle(
             return main.templates.TemplateResponse(
                 'pages/auth/login.html', context=context
             )
+
     return main.templates.TemplateResponse(
         'pages/auth/register.html', context=context
     )
@@ -60,6 +63,7 @@ def login_handle(
 
     context = {}
     context['request'] = request
+    context['endpoint'] = str(request.url).split('/')[-1]
     context['title'] = 'Entrar'
     context['user'] = {}
 
@@ -70,12 +74,11 @@ def login_handle(
             hash_password = user.password 
         ):
             context['user'] = user
-            # return RedirectResponse(
-            #     main.webapp.url_path_for(name='index'), 
-            #     status_code=status.HTTP_303_SEE_OTHER,
-            # )
-            return main.templates.TemplateResponse(
-                'pages/index.html', context=context
+            headers = { 'Location': '/' }
+            main.templates.TemplateResponse('pages/index.html', context=context, headers=headers)
+            return RedirectResponse(
+                main.webapp.url_path_for(name='index'), 
+                status_code=status.HTTP_303_SEE_OTHER,
             )
 
     return main.templates.TemplateResponse(
