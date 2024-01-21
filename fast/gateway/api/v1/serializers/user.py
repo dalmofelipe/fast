@@ -1,22 +1,32 @@
 from pydantic import BaseModel
 
 
-class UserInput(BaseModel):
+class UserCreate(BaseModel):
 
     name: str
     email: str
     password: str
-    confirm_pass: str
 
     def get_properties(self):
-        return (self.name, self.email, self.password, self.confirm_pass)
+        return (self.name, self.email, self.password)
 
 
-class UserInputUpdate(BaseModel):
+class UserOutput(BaseModel):
 
+    id: int
+    name: str
+    email: str
+
+    def get_properties(self):
+        return (self.id, self.name, self.email)
+
+
+class UserUpdate(BaseModel):
+
+    id: int | None
     name: str | None
     email: str | None
     password: str | None
 
     def get_properties(self):
-        return (self.name, self.email, self.password)
+        return (self.id, self.name, self.email, self.password)

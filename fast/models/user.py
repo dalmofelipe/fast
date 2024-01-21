@@ -41,7 +41,7 @@ class User(SQLModel, table=True):
     password: str
     created_at: datetime = Field(default_factory=datetime.now)
 
-    def validate(name, email, password, confirm):
+    def validate(name, email, password):
         errors = {}
 
         if len(name) < 3 or len(name) > 20:
@@ -52,9 +52,6 @@ class User(SQLModel, table=True):
 
         if len(password) < 6 or len(password) > 12:
             errors['password'] = 'A senha deve ter entre 6 e 12 caracteres'
-
-        if password != confirm:
-            errors['confirm_pass'] = 'A senha e a confirmação estão diferentes'
 
         if len(errors) > 0: return False, errors
 

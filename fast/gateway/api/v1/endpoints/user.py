@@ -1,8 +1,10 @@
+from typing import Any
+
 from fastapi import APIRouter, HTTPException, Query, status
 
-from fast.domain.models.user import User
-from fast.gateway.api.v1.serializers.user import UserInput, UserInputUpdate
-from fast.infra.repositories.users import UserRepository
+from fast.models.user import User
+from fast.gateway.api.v1.serializers.user import UserCreate, UserUpdate, UserOutput
+from fast.repositories.users import UserRepository
 
 routes = APIRouter()
 user_repository = UserRepository()
@@ -51,15 +53,16 @@ def route_find_by_email(
 
 @routes.post(
     '/', 
-    status_code=status.HTTP_201_CREATED
+    status_code=status.HTTP_201_CREATED,
+    response_model=UserOutput
 )
 def route_save(
-    user_input: UserInput
-):
+    user_input: UserCreate
+)   -> Any:
     global user_repository
-    name, email, password, confirm_pass = user_input.get_properties()
+    name, email, password = user_input.get_properties()
     
-    is_valid, errors = User.validate(name, email, password, confirm_pass)
+    is_valid, errors = User.validate(name, email, password)
     user_db = user_repository.find_by_email(email)
 
     if user_db or not is_valid:
@@ -74,19 +77,20 @@ def route_save(
         )
 
     if is_valid and len(errors) == 0 and not user_db:
-        user_repository.save(name, email, password)
+        return user_repository.save(name, email, password)
 
 
 @routes.put(
     '/{id:int}', 
-    status_code=status.HTTP_200_OK
+    status_code=status.HTTP_200_OK,
+    response_model=UserOutput
 )
 def route_update(
     id: int,
-    user_data: UserInputUpdate
-):
+    user_data: UserUpdate
+)   -> Any:
     global user_repository
-    name, email, password = user_data.get_properties()
+    _, name, email, password = user_data.get_properties()
     return user_repository.update(id, name, email, password)
 
 

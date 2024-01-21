@@ -1,4 +1,4 @@
-from fast.infra.database import get_session
+from fast.config.database import get_session
 
 
 class Base:

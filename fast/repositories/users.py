@@ -2,8 +2,8 @@ from sqlmodel import select, text
 from sqlalchemy.exc import NoResultFound
 
 from fast.core.bcrypt import hash_password
-from fast.domain.models.user import IUserRepository, User
-from fast.infra.repositories.base import Base
+from fast.models.user import IUserRepository, User
+from fast.repositories.base import Base
 
 
 class UserRepository(Base, IUserRepository):
@@ -12,7 +12,9 @@ class UserRepository(Base, IUserRepository):
         Base.__init__(self)
 
 
-    def save(self, name: str, email: str, password: str):
+    def save(
+        self, name: str, email: str, password: str
+    ) -> User:
         """ """
         user = User()
         user.name = name
@@ -22,6 +24,9 @@ class UserRepository(Base, IUserRepository):
         with self.get_session() as session:
             session.add(user)
             session.commit()
+            session.refresh(user)
+        
+        return user
 
 
     def get_all(self, offset: int, limit: int, name: str, email: str):
@@ -84,10 +89,12 @@ class UserRepository(Base, IUserRepository):
 
         with self.get_session() as session:
             statement = select(User).where(User.id == id)
-            user = session.exec(statement).first()
 
-        if not user:
-            return None
+            try: 
+                results = session.exec(statement)
+                user = results.one()
+            except NoResultFound:
+                return None
 
         user.name = name or user.name
         user.email = email or user.email
@@ -99,7 +106,7 @@ class UserRepository(Base, IUserRepository):
             session.add(user)
             session.commit()
             session.refresh(user)
-
+        
         return user
     
     

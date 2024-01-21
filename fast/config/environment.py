@@ -15,7 +15,7 @@ if ENV == 'production':
     }
 else:
     settings = {
-        'DB_DEV': config('DB_DEV', default="sqlite:///fast/infra/database.sqlite"),
+        'DB_DEV': config('DB_DEV', default="sqlite:///database.sqlite"),
     }
 
 settings['ENVIRONMENT'] = ENV

@@ -2,9 +2,9 @@ from fastapi import Request, status
 from fastapi.responses import RedirectResponse
 
 from fast.core import bcrypt, validations
-from fast.domain.models.user import User
+from fast.models.user import User
 from fast.gateway.web import main
-from fast.infra.repositories.users import UserRepository
+from fast.repositories.users import UserRepository
 
 user_repository = UserRepository()
 context = {

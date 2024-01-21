@@ -24,21 +24,20 @@ POST http://localhost:8000/api/v1/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Dalmo",
-    "email": "dalmo@email.com.br",
-    "password": "123123",
-    "confirm_pass": "123123"
+    "name": "Paula",
+    "email": "paula@email.com",
+    "password": "p123321p"
 }
 
 ###
-PUT http://localhost:8000/api/v1/users/4 HTTP/1.1
+PUT http://localhost:8000/api/v1/users/3 HTTP/1.1
 Content-Type: application/json
 
 {
-    //"name": "Dalmo Felipe Torres de Paula",
+    "name": "Torres de Paula",
     //"password": "123123",
-    "email": "dalmo@bol.com.br"
+    "email": "torres@yahoo.com"
 }
 
 ###
-DELETE http://localhost:8000/api/v1/users/4 HTTP/1.1
+DELETE http://localhost:8000/api/v1/users/1 HTTP/1.1
