@@ -1,7 +1,7 @@
 from fastapi import Request
 from fastapi.responses import RedirectResponse
 
-from fast.gateway.web import main
+from fast.web import main
 
 
 context = {

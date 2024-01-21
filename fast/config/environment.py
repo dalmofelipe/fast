@@ -19,3 +19,4 @@ else:
     }
 
 settings['ENVIRONMENT'] = ENV
+settings['PORT'] = config('PORT', cast=int, default=8000)

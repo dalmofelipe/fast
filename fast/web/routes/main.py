@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from fast.gateway.web.routes.root import root_routes
-from fast.gateway.web.routes.auth import auth_routes
+from fast.web.routes.root import root_routes
+from fast.web.routes.auth import auth_routes
 
 
 web_routes = APIRouter()

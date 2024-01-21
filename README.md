@@ -52,7 +52,7 @@ $ fast runserver
 
 O servidor ouvirá a porta 8000 em http://localhost:8000
 
-A porta pode ser modificada informando a option `--port=3333`.
+A porta pode ser modificada por uma variavel de ambiente ex.: `export PORT=3333`.
 
 ```bash
 $ fast runserver --port=3333

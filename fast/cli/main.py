@@ -3,19 +3,26 @@ from rich import print
 from typing import Optional
 from subprocess import run
 
+from fast.config.environment import settings
+
+PORT = settings['PORT']
 
 cli = Typer(help='CLI FastApi101')
 
 
-@cli.command('runserver')
-def cmd_runserver(port: Optional[int | None] = 8000):
+@cli.command(
+    'runserver'
+)
+def cmd_runserver():
+    f"""
+    Inicia o WebServer do projeto por na porta ENVIRONMENT {PORT} ou 8000
     """
-    Inicia o WebServer do projeto por padrão na porta 8000
-    """
-    run(['uvicorn', 'fast.gateway.web.main:webapp', f'--port={port}', '--reload'])
+    run(['uvicorn', 'fast.web.main:webapp', f'--port={PORT}', '--reload'])
 
 
-@cli.command('hello')
+@cli.command(
+    'hello'
+)
 def cmd_hello(name: Optional[str | None] = 'World'):
     """
     Hello World
@@ -23,7 +30,9 @@ def cmd_hello(name: Optional[str | None] = 'World'):
     print(f'Hello {name}!')
 
 
-@cli.command('ping')
+@cli.command(
+    'ping'
+)
 def cmd_ping():
     """
     Comando para teste da CLI

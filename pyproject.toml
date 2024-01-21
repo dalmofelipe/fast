@@ -24,7 +24,7 @@ pytest = "^7.2.1"
 blue = "^0.9.1"
 
 [tool.poetry.scripts]
-fast = 'fast.gateway.cli.main:cli'
+fast = 'fast.cli.main:cli'
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,6 +1,6 @@
 from fastapi import Request, HTTPException
 
-from fast.gateway.web import main
+from fast.web import main
 
 
 # Handlers

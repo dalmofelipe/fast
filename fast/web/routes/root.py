@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 
-from fast.gateway.web.controllers import root as root_controller
+from fast.web.controllers import root as root_controller
 
 root_routes = APIRouter(prefix='')
 

@@ -3,7 +3,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, Query, status
 
 from fast.models.user import User
-from fast.gateway.api.v1.serializers.user import UserCreate, UserUpdate, UserOutput
+from fast.api.v1.serializers.user import UserCreate, UserUpdate, UserOutput
 from fast.repositories.users import UserRepository
 
 routes = APIRouter()
@@ -42,11 +42,12 @@ def route_get_one(
 
 @routes.get(
     '/find',
-    status_code=status.HTTP_200_OK
+    status_code = status.HTTP_200_OK,
+    response_model = UserOutput | None
 )
 def route_find_by_email(
     email: str = Query(default=''),
-):
+)   -> Any:
     global user_repository
     return user_repository.find_by_email(email)
 

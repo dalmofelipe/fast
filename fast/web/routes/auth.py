@@ -1,18 +1,20 @@
 from fastapi import APIRouter, Request, Form
 from fastapi.responses import HTMLResponse
 
-from fast.gateway.web.controllers import auth as auth_controller
+from fast.web.controllers import auth as auth_controller
 
 auth_routes = APIRouter(prefix='/auth')
 
 
 @auth_routes.get(
     '/register', 
-    name='register', response_class=HTMLResponse, 
+    name='register', 
+    response_class=HTMLResponse, 
     include_in_schema=False
 )
 @auth_routes.post(
-    '/register', response_class=HTMLResponse, 
+    '/register', 
+    response_class=HTMLResponse,
     include_in_schema=False
 )
 def route_register_handle(
@@ -27,10 +29,14 @@ def route_register_handle(
 
 
 @auth_routes.get(
-    '/login', name='login', include_in_schema=False
+    '/login', 
+    name='login', 
+    include_in_schema=False
 )
 @auth_routes.post(
-    '/login', response_class=HTMLResponse, include_in_schema=False
+    '/login', 
+    response_class=HTMLResponse, 
+    include_in_schema=False
 )
 def route_login_handle(
     request: Request,

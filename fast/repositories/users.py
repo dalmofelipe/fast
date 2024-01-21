@@ -50,13 +50,8 @@ class UserRepository(Base, IUserRepository):
     def find_by_email(self, email: str):
         """ """
         with self.get_session() as session:
-            statement = select(
-                User.id, 
-                User.name,
-                User.email
-            ).where(User.email == email)
-            user = session.exec(statement).first()
-            return user
+            statement = select(User).where(User.email == email)
+            return session.exec(statement).first() or None
 
 
     def find_by_name(self, name: str):
