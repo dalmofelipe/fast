@@ -14,3 +14,14 @@ root_routes = APIRouter(prefix='')
 )
 def route_index(request: Request):
     return root_controller.index(request)
+
+
+
+@root_routes.get(
+    '/contato', 
+    name='contato', 
+    include_in_schema=False, 
+    response_class=HTMLResponse
+)
+def route_index(request: Request):
+    return root_controller.contato(request)

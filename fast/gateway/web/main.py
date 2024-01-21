@@ -2,10 +2,10 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from fast.infra.config import settings
 from fast.gateway.api.v1.main import api_v1_routes
 from fast.gateway.web.handlers import exception_handlers
 from fast.gateway.web.routes.main import web_routes
+from fast.infra.config import settings
 
 print(f'INFO:     {settings["ENVIRONMENT"].upper()} Environment')
 

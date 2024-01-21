@@ -7,12 +7,13 @@ auth_routes = APIRouter(prefix='/auth')
 
 
 @auth_routes.get(
-    '/register', name='register', 
-    response_class=HTMLResponse, 
+    '/register', 
+    name='register', response_class=HTMLResponse, 
     include_in_schema=False
 )
 @auth_routes.post(
-    '/register', response_class=HTMLResponse, include_in_schema=False
+    '/register', response_class=HTMLResponse, 
+    include_in_schema=False
 )
 def route_register_handle(
     request: Request,
@@ -21,9 +22,8 @@ def route_register_handle(
     password: str | None = Form(default=''),
     confirm_pass: str | None = Form(default=''),
 ):
-    return auth_controller.register_handle(
-        request, name, email, password, confirm_pass
-    )
+    return auth_controller\
+        .register_handle(request, name, email, password, confirm_pass)
 
 
 @auth_routes.get(

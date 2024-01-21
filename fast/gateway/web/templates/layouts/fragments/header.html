@@ -9,12 +9,11 @@
         <div class="menu">
             <ul>
                 <li><a href="{{ url_for('index') }}">inicio</a></li>
-                <li><a href="#">técnicas</a></li>
-                <li><a href="#">contato</a></li>
+                <li><a href="{{ url_for('contato') }}">contato</a></li>
             </ul>
 
             <ul>
-                {% if 'email' in user %}
+                {% if 'email' in user and not errors %}
                 <small><strong>Olá</strong> {{ user.name }}, Bem vindo(a)!</small>
                 <li><a href="{{ url_for('index') }}">sair</a></li>
                 {% elif endpoint == 'login' %}

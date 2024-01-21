@@ -1,43 +1,66 @@
-from fastapi import APIRouter, Query, status, HTTPException
+from fastapi import APIRouter, HTTPException, Query, status
 
-from fast.gateway.api.v1.serializers.user import UserInput
-
-from fast.core import validations
-from fast.infra.database import get_session
-from fast.adapters.repositories.users import UserRepository
-
+from fast.domain.models.user import User
+from fast.gateway.api.v1.serializers.user import UserInput, UserInputUpdate
+from fast.infra.repositories.users import UserRepository
 
 routes = APIRouter()
-repository = UserRepository(get_session)
+user_repository = UserRepository()
 
 PAGE_DEFAULT = 1
 LIMIT_DEFAULT = 5
 
 
-@routes.get('/')
+@routes.get(
+    '/'
+)
 def route_list_all(
     page: int = Query(default=PAGE_DEFAULT),
     limit: int = Query(default=LIMIT_DEFAULT),
     name: str = Query(default=''),
     email: str = Query(default=''),
 ):
-    global repository
+    global user_repository
     if page < 1 or limit < 1:
         return None
     offset = (page * limit) - limit
 
-    return repository.get_all(offset, limit, name, email)
+    return user_repository.get_all(offset, limit, name, email)
 
 
-@routes.post('/', status_code=status.HTTP_201_CREATED)
-def route_save(user_input: UserInput):
-    global repository
+@routes.get(
+    '/{id:int}'
+)
+def route_get_one(
+    id: int
+):
+    global user_repository
+    return user_repository.find_by_id(id)
+
+
+@routes.get(
+    '/find',
+    status_code=status.HTTP_200_OK
+)
+def route_find_by_email(
+    email: str = Query(default=''),
+):
+    global user_repository
+    return user_repository.find_by_email(email)
+
+
+@routes.post(
+    '/', 
+    status_code=status.HTTP_201_CREATED
+)
+def route_save(
+    user_input: UserInput
+):
+    global user_repository
     name, email, password, confirm_pass = user_input.get_properties()
     
-    is_valid, errors = validations.check_input_user(
-        name, email, password, confirm_pass
-    )
-    user_db = repository.find_by_email(email)
+    is_valid, errors = User.validate(name, email, password, confirm_pass)
+    user_db = user_repository.find_by_email(email)
 
     if user_db or not is_valid:
         errors['email'] = 'E-mail já esta em uso no sistema'
@@ -51,10 +74,28 @@ def route_save(user_input: UserInput):
         )
 
     if is_valid and len(errors) == 0 and not user_db:
-        repository.save(name, email, password)
+        user_repository.save(name, email, password)
 
 
-@routes.get('/find')
-def route_find_by_email(email: str = Query(default='')):
-    global repository
-    return repository.find_by_email(email)
+@routes.put(
+    '/{id:int}', 
+    status_code=status.HTTP_200_OK
+)
+def route_update(
+    id: int,
+    user_data: UserInputUpdate
+):
+    global user_repository
+    name, email, password = user_data.get_properties()
+    return user_repository.update(id, name, email, password)
+
+
+@routes.delete(
+    '/{id:int}',
+    status_code=status.HTTP_200_OK
+)
+def route_delete(
+    id: int
+):
+    global user_repository
+    return user_repository.delete(id)

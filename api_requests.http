@@ -1,0 +1,44 @@
+### HOME
+GET http://localhost:8000/api/v1 HTTP/1.1
+
+###
+GET http://localhost:8000/api/v1/users HTTP/1.1
+
+###
+GET http://localhost:8000/api/v1/users/4 HTTP/1.1
+
+###
+GET http://localhost:8000/api/v1/users?limit=2&page=3 HTTP/1.1
+
+###
+GET http://localhost:8000/api/v1/users?limit=1&name=felipe&email=eli HTTP/1.1
+
+###
+GET http://localhost:8000/api/v1/users?email=dalmo@email.com.br HTTP/1.1
+
+###
+GET http://localhost:8000/api/v1/users/find?email=dalmo@email.com.br HTTP/1.1
+
+###
+POST http://localhost:8000/api/v1/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Dalmo",
+    "email": "dalmo@email.com.br",
+    "password": "123123",
+    "confirm_pass": "123123"
+}
+
+###
+PUT http://localhost:8000/api/v1/users/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    //"name": "Dalmo Felipe Torres de Paula",
+    //"password": "123123",
+    "email": "dalmo@bol.com.br"
+}
+
+###
+DELETE http://localhost:8000/api/v1/users/4 HTTP/1.1

@@ -12,10 +12,11 @@ class UserInput(BaseModel):
         return (self.name, self.email, self.password, self.confirm_pass)
 
 
-class UserOutput(BaseModel):
+class UserInputUpdate(BaseModel):
 
-    name: str
-    email: str
+    name: str | None
+    email: str | None
+    password: str | None
 
     def get_properties(self):
-        return (self.name, self.email)
+        return (self.name, self.email, self.password)
