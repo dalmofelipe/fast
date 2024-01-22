@@ -1,4 +1,4 @@
-@port=9090
+@port=5555
 
 ### HOME
 GET http://localhost:{{port}}/api/v1 HTTP/1.1

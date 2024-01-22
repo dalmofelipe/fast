@@ -83,8 +83,8 @@ def route_save(
 
 @routes.put(
     '/{id:int}', 
-    status_code=status.HTTP_200_OK,
-    response_model=UserOutput
+    status_code = status.HTTP_200_OK,
+    response_model = UserOutput | None
 )
 def route_update(
     id: int,
