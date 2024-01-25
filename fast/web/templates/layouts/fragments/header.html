@@ -14,12 +14,18 @@
 
             <ul>
                 {% if 'email' in user and not errors %}
-                <small><strong>Olá</strong> {{ user.name }}, Bem vindo(a)!</small>
-                <li><a href="{{ url_for('logout') }}">sair</a></li>
+                <li>
+                    <small><strong>Olá</strong> {{ user.name }}, Bem vindo(a)!</small> 
+                    <a href="{{ url_for('logout') }}"> Sair</a>
+                </li>
                 {% elif endpoint == 'login' %}
-                <li><a href="{{ url_for('register') }}">Resgistrar</a></li>
+                <li>
+                    <a href="{{ url_for('register') }}">Resgistrar</a>
+                </li>
                 {% else %}
-                <li><a href="{{ url_for('login') }}">login</a></li>
+                <li>
+                    <a href="{{ url_for('login') }}">login</a>
+                </li>
                 {% endif %}
             </ul>
         </div>

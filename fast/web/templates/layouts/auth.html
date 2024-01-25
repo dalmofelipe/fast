@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/brands.css') }}" >
     <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/solid.css') }}" >
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     {% block styles %}{% endblock %}
 </head>
 <body>
@@ -21,7 +23,8 @@
     {% block content %}{% endblock %}
     </div>
 
-<script src="{{ url_for('statics', path='js/auth.js') }}"></script>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+{% block scripts %}{% endblock %}
 </body>
 </html>

@@ -13,7 +13,13 @@
 
     <label for="email_login">
         <!-- <small>E-mail</small> -->
-        <input id="email_login" type="email" name="email" placeholder="Email" required>
+        <input 
+            id="email_login" 
+            type="email" 
+            name="email" 
+            value="{{ email or '' }}" 
+            placeholder="Email" 
+            required>
     </label>
 
     <label for="password">
@@ -31,4 +37,28 @@
 
 </form>
 </div>
+{% endblock %}
+
+
+{% block scripts %}
+
+{% if errors %}
+<script>
+Toastify({
+    text: "{{ errors|safe }}",
+    duration: 15000,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #e83838, #a10303)",
+    },
+    onClick: function(){
+        console.log('{{ errors|safe }}')
+    } // Callback after click
+  }).showToast();
+</script>
+{% endif %}
+
 {% endblock %}

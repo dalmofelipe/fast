@@ -57,6 +57,8 @@ def login_handle(
     global user_repository, context
     context['request'] = request
     context['endpoint'] = str(request.url).split('/')[-1]
+    context['email'] = ''
+    context['errors'] = None
 
     if request.method == 'POST':
         user_from_db = user_repository.find_by_email(email)
@@ -74,6 +76,9 @@ def login_handle(
             }))
             
             return response
+        else:
+            context['errors'] = 'Usuário e ou senha inválida!'
+            context['email'] = email
 
     return main.templates\
         .TemplateResponse('pages/auth/login.html', context=context)
