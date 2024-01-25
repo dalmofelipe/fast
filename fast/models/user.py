@@ -44,8 +44,8 @@ class User(SQLModel, table=True):
     def validate(name, email, password):
         errors = {}
 
-        if len(name) < 3 or len(name) > 20:
-            errors['name'] = 'O nome de conter entre 3 e 20 caracteres'
+        if len(name) < 3 or len(name) > 100:
+            errors['name'] = 'O nome de conter entre 3 e 100 caracteres'
 
         if not check_email(email):
             errors['email'] = f'E-mail é inválido'
