@@ -1,41 +1,70 @@
 {% extends 'layouts/auth.html' %}
 
+{% block styles %}
+<style>
+#app .col-left header {
+    font-size: 2.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#app .col-left header i {
+    font-size: 5rem;
+}
+#app .col-left header span {
+    font-size: 34px;
+    font-weight: bolder;
+}
+</style>
+{% endblock %}
+
 {% block content %}
 <div id="app">
-<form action="/auth/login" method="post" class="form-auth">
 
-    <header>
-        <i class="fa-brands fa-github-alt"></i>
-        <h2>FastAPI <strong>101</strong></h2>
-    </header>
+    <div class="col-left">
 
-    <strong>LOGIN</strong>
+        <header>
+            <i class="fa-brands fa-github-alt"></i>            
+            <span>FastAPI 101</span>
+        </header>
 
-    <label for="email_login">
-        <!-- <small>E-mail</small> -->
-        <input 
-            id="email_login" 
-            type="email" 
-            name="email" 
-            value="{{ email or '' }}" 
-            placeholder="Email" 
-            required>
-    </label>
-
-    <label for="password">
-        <!-- <small>Senha</small> -->
-        <input id="password" type="password" name="password" placeholder="Senha" required>
-    </label>
-
-    <div class="form-group">
-        <input type="submit" value="ENTRAR" class="btn btn-primary">
     </div>
 
-    <div class="form-group">
-        <small>Ainda não tem uma conta? <a href="/auth/register">Crie uma nova conta</a></small>
+    <div class="col-right">
+
+        <h2>LOGIN</h2>
+
+        <form action="/auth/login" method="post" class="form-auth">
+            <label for="email_login">
+                <!-- <small>E-mail</small> -->
+                <input 
+                    id="email_login" 
+                    type="email" 
+                    name="email" 
+                    value="{{ email or '' }}" 
+                    placeholder="Email" 
+                    required>
+            </label>
+        
+            <label for="password">
+                <!-- <small>Senha</small> -->
+                <input id="password" type="password" name="password" placeholder="Senha" required>
+            </label>
+        
+            <div class="form-group">
+                <input type="submit" value="ENTRAR" class="btn btn-primary">
+            </div>
+        
+            <div class="form-group">
+                <p>Ainda não tem uma conta? <a href="/auth/register">Crie uma nova conta</a></p>
+            </div>
+        
+        </form>
+
     </div>
 
-</form>
 </div>
 {% endblock %}
 

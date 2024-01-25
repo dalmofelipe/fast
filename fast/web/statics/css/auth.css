@@ -7,7 +7,6 @@
     font-weight: 600;
     padding: 15px 20px;
     color: #555;
-    flex-grow: 1;
     cursor: pointer;
     transition: background-color .2s ease;
 }
@@ -30,70 +29,58 @@
 
 #app {
     width: 100%;
+    min-height: 100vh;
+    font-size: 16px;
+
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
+}
+.col-left {
+    width: 30%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.col-right {
+    width: 70%;
+    min-height: 100vh;
+    padding: 55px 89px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 55px;
+
+    background-color: white;
 }
 @media (max-width: 800px) {
     #app {
-        margin-top: 90px;
+        margin-top: 0px;
     }
 }
+
+
 .form-auth {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     font-family: Poppins;
-    background-color: white;
-    /* border: 1px solid rgba(0, 0, 0, 0.45); */
-    /* box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3); */
-    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); */
-    border-radius: 8px;
-    padding: 0px 25px 25px 25px;
-    margin: 55px 0px;
-}
-.form-auth header {
-    width: 100%;
-    margin: 0;
-    padding: 25px 0px 10px 0px;
-    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
-    margin-bottom: 8px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.form-auth header i {
-    color: #555;
-    font-size: 3.5rem;
-}
-.form-auth header h2 {
-    margin: 0;
-    font-family: Poppins;
-}
-.form-auth header h2 strong {
-    color: #019587;
-    font-weight: bold;
-}
-.form-auth strong {
-    color: #019587;
-    font-weight: bold;
-    margin-bottom: 15px;
 }
 .form-auth label {
     display: flex;
     flex-direction: column;
-
+    width: 100%;
     margin-bottom: 10px;
 }
 .form-auth label input {
     color: #555 !important;
     background-color: whitesmoke;
     font-family: Poppins;
-    width: 350px;
     padding: 13px;
     font-size: 14px;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -108,6 +95,7 @@
     border: 1px solid rgba(0, 0, 0, 0.4);
     outline: none;
 }
+
 .form-group {
     width: 100%;
     margin: 10px 0px;
@@ -116,18 +104,7 @@
     flex-direction: column;
     gap: 10px;
 }
-.form-group small {
-    text-align: center;
-}
-.form-group small a {
-    color: #019587;
-    font-size: 13px;
-    font-family: Poppins;
-    text-decoration: none;
-} 
-.form-group small a:hover {
-    color: #555;
-}
+
 .form-validation-error {
     font-size: 13px;
     font-family: Poppins;
