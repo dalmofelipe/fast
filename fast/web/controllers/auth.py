@@ -1,4 +1,7 @@
-from fastapi import Request
+import json
+
+from fastapi import Request, Response, status
+from fastapi.responses import RedirectResponse
 
 from fast.core import bcrypt, validations
 from fast.models.user import User
@@ -61,19 +64,30 @@ def login_handle(
         if user_from_db and bcrypt\
             .check_password(password, user_from_db.password):
 
-            context['user'] = {
+            response = RedirectResponse(
+                main.webapp.url_path_for(name='index'), 
+                status_code=status.HTTP_303_SEE_OTHER,
+            )
+            response.set_cookie(key='user', value=json.dumps({
                 'name': user_from_db.name,
                 'email': user_from_db.email
-            }
-            headers = { 'Location': '/' }
-            return main.templates\
-                .TemplateResponse('pages/index.html', context=context, headers=headers, 
-                    status_code=200)
+            }))
             
-            # return RedirectResponse(
-            #     main.webapp.url_path_for(name='index'), 
-            #     status_code=status.HTTP_303_SEE_OTHER
-            # )
+            return response
 
     return main.templates\
         .TemplateResponse('pages/auth/login.html', context=context)
+
+
+
+def logout_handle(
+    request: Request
+):
+    response = RedirectResponse(
+        main.webapp.url_path_for(name='login'), 
+        status_code=status.HTTP_303_SEE_OTHER,
+    )
+    
+    response.delete_cookie(key='user')
+
+    return response

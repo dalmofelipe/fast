@@ -30,15 +30,13 @@
 
 #app {
     width: 100%;
-    margin-top: 110px;
-
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 @media (max-width: 800px) {
     #app {
-        margin-top: 180px;
+        margin-top: 90px;
     }
 }
 .form-auth {

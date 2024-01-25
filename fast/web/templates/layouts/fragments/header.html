@@ -15,7 +15,7 @@
             <ul>
                 {% if 'email' in user and not errors %}
                 <small><strong>Olá</strong> {{ user.name }}, Bem vindo(a)!</small>
-                <li><a href="{{ url_for('index') }}">sair</a></li>
+                <li><a href="{{ url_for('logout') }}">sair</a></li>
                 {% elif endpoint == 'login' %}
                 <li><a href="{{ url_for('register') }}">Resgistrar</a></li>
                 {% else %}

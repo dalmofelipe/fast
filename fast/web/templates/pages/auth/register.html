@@ -1,4 +1,4 @@
-{% extends 'layouts/main.html' %}
+{% extends 'layouts/auth.html' %}
 
 
 {% block styles %}
@@ -87,9 +87,4 @@
 
 </form>
 </div>
-{% endblock %}
-
-
-{% block scripts %}
-<script src="{{ url_for('statics', path='js/auth.js') }}"></script>
 {% endblock %}

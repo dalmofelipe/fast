@@ -6,18 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="{{ url_for('statics', path='images/favicon.ico') }}">
     <title>{{ title }} FastApi101</title>
+    <link rel="stylesheet" href="{{ url_for('statics', path='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('statics', path='css/auth.css') }}">
     
     <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/fontawesome.css') }}" >
     <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/brands.css') }}" >
     <link rel="stylesheet" href="{{ url_for('statics', path='fonts/fontawesome/css/solid.css') }}" >
+
+    {% block styles %}{% endblock %}
 </head>
 <body>
 
     <div id="app">
-    {% block form_auth %}{% endblock %}
+    {% block content %}{% endblock %}
     </div>
 
 <script src="{{ url_for('statics', path='js/auth.js') }}"></script>
+
 </body>
 </html>

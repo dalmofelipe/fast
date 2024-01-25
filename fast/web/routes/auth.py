@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request, Form
+from fastapi import APIRouter, Request, Response, Form
 from fastapi.responses import HTMLResponse
 
 from fast.web.controllers import auth as auth_controller
@@ -44,3 +44,15 @@ def route_login_handle(
     password: str | None = Form(default=''),
 ):
     return auth_controller.login_handle(request, email, password)
+
+
+
+@auth_routes.get(
+    '/logout', 
+    name='logout', 
+    include_in_schema=False
+)
+def route_logout_handle(
+    request: Request
+):
+    return auth_controller.logout_handle(request)
