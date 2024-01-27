@@ -12,37 +12,36 @@
 }
 
 :root {
-    --hover-green: #009485;
-    --green: #0e685f;
-    --dark: #343434;
-    --light: #d2d8de;
-    --max-width: 1366px;
+    --cor-destaque: lime;
+    --cor-principal: #008b8b;
+    --hover-principal: #00aaaa;
+    --fg-dark: #353535;
+    --fg-light: #fafafa;
+    --bg-dark: #555;
+    --bg-light: #d2d8dd;
+    --max-width: 1200px;
+    --min-height-banner: 350px;
 }
 
 html, body {
-    color: #555;
-    background-color: #d2d8de;
+    color: var(--fg-dark);
+    background-color: var(--bg-light);
 
     font-family: Poppins;
-    /* font-family: 'Open Sans', sans-serif; */
     font-size: 16px;
-}
-
-.maincontent {
-    margin-top: 76px;
-    width: 100%;
 }
 
 /* BANNER  BANNER  BANNER  BANNER  BANNER  BANNER */
 .banner {
-    color: white;
-    background-color: var(--green);
+    color: var(--fg-light);
+    background-color: var(--cor-principal);
+    margin-top: 75px;
+    min-height: var(--min-height-banner);
 }
 .banner-container {
     display: flex;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 60px 30px;
 }
 @media (max-width: 1100px) {
     .banner-container {

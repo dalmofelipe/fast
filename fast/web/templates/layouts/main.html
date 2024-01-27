@@ -16,15 +16,21 @@
     <link rel="stylesheet" href="{{ url_for('statics', path='css/footer.css') }}">
 </head>
 <body>
+
 {% include 'layouts/fragments/header.html' %}
 
-<div class="maincontent">
+<header class="banner">
+    <div class="banner-container">
+{% block banner %}{% endblock %}
+    </div>
+</header>
+
 {% block content %}{% endblock %}
-</div>
 
 {% include 'layouts/fragments/footer.html' %}
 
 <script src="{{ url_for('statics', path='js/global.js') }}"></script>
 {% block scripts %}{% endblock %}
+
 </body>
 </html>

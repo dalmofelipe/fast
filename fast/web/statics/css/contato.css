@@ -1,0 +1,5 @@
+.banner-container {
+    flex-direction: column;
+    justify-content: center;
+    min-height: var(--min-height-banner);
+}

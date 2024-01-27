@@ -1,8 +1,19 @@
 
-.homepage {
+.banner-index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     width: 100%;
+    padding: 0px 25px;
+    height: var(--min-height-banner);
+}
+
+.homepage {
+    width: var(--max-width);
     font-family: Poppins;
-    font-weight: 400;
+    border-radius: 13px;
+    margin: 50px auto;
 }
 @media (max-width: 800px) {
     .homepage {
@@ -10,10 +21,10 @@
     }
 }
 
-.homepage > main {
-    color: #777;
+.homepage-content {
+    /* color: #fff; */
     /* max-width: var(--max-width); */
-    margin: 50px auto;
+    margin: 0px auto;
 
     display: flex;
     flex-direction: column-reverse;
@@ -21,24 +32,24 @@
     align-items: center;
     gap: 20px;
 }
-.homepage > main .userlogged {
-    color: #555;
+.homepage-content .userlogged {
+    color: var(--fg-dark);
     margin: 25px 0px;
 }
-.homepage > main .userlogged p a {
-    color: var(--fg-secondary);
+.homepage-content .userlogged p a {
+    color: var(--fg-light);
     text-decoration: none;
 }
-.homepage > main .userlogged p a:hover {
-    color: var(--fg-primary);
+.homepage-content .userlogged p a:hover {
+    color: var(--fg-dark);
 }
 
 .homepage footer a {
-    color: var(--fg-secondary);
+    color: var(--fg-light);
     text-decoration: none;
 }
 .homepage footer a:hover {
-    color: var(--fg-primary);
+    color: var(--fg-dark);
 }
 
 
@@ -55,7 +66,6 @@ small#time {
 .techs-container {
     width: 100%;
     max-width: var(--max-width);
-    padding: 0px 20px;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -89,17 +99,20 @@ small#time {
     align-items: center;
     justify-content: flex-start;
 
-    background-color: white;
-    /* border: 1px solid rgba(0, 0, 0, 0.45); */
+    background-color: var(--fg-light);
+    border: 1px solid rgba(0, 0, 0, 0.25);
     /* box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3); */
     /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); */
-    border-radius: 8px;
+    /* border-radius: 8px; */
     padding: 25px;
     margin: 0px;
 }
+.card > span { 
+    font-size: 3rem;
+}
 .card > header { 
-    display: flex;
     font-size: 2rem;
+    margin: 0;
 }
 .card > main { 
     font-size: 0.95rem;
@@ -109,5 +122,5 @@ small#time {
 }
 
 .userlogged {
-    color: var(--fg-secondary);
+    color: var(--fg-light);
 }

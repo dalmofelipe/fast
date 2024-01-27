@@ -1,38 +1,18 @@
 {% extends 'layouts/main.html' %}
 
-
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('statics', path='css/index.css') }}">
+<link rel="stylesheet" href="{{ url_for('statics', path='css/contato.css') }}">
 {% endblock %}
 
+{% block banner %}
+<p>{{describe}}</p>
+<br>
+<h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit expedita modi quasi molestias dicta. Inventore ullam dolor nulla magni accusantium. Placeat, ipsum harum eum eius tempora sed maiores eaque?</h2>
+{% endblock %}
 
 {% block content %}
-<div class="homepage">
-
-    <header class="banner">
-        <div class="banner-container">
-            <!-- <div class="col-left">
-                <h1>Fast<span>API</span>101</h1>
-                <h2>Sistema de gestão, autenticação e permissionamento de usuários</h2>
-                <p>Um commit a cada funcionalidade!</p>
-                <p>{{ describe }}</p>
-                <small id="time"></small>
-            </div> -->
-            <div class="col-right">
-                <!-- <i class="fa-brands fa-github-alt"></i> -->
-                <span>#> Contato</span>
-            </div>
-        </div>
-    </header>
-
-    <main> 
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit expedita modi quasi molestias dicta. Inventore ullam dolor nulla magni accusantium. Placeat, ipsum harum eum eius tempora sed maiores eaque?</p>
-
-        <p>{{describe}}</p>
-    </main>
-</div>
+<div class="homepage"></div>
 {% endblock %}
-
 
 {% block scripts %}
 <script src="{{ url_for('statics', path='js/indexPage.js') }}"></script>

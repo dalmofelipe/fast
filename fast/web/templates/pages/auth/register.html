@@ -2,18 +2,28 @@
 
 {% block styles %}
 <style>
-#app .col-left header {
+#app .col-left h2 {
+    width: 68%;
+    color: var(--cor-principal);
+}
+#app .col-right header {
     font-size: 2.5rem;
+
+    width: 100%;
+    padding: 15px 0px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    color: white;
+    /* background-color: black; */
 }
-#app .col-left header i {
+#app .col-right header i {
     font-size: 5rem;
 }
-#app .col-left header span {
+#app .col-right header span {
     font-size: 34px;
     font-weight: bolder;
 }
@@ -24,16 +34,6 @@
 <div id="app">
 
     <div class="col-left">
-
-        <header>
-            <i class="fa-brands fa-github-alt"></i>            
-            <span>FastAPI 101</span>
-        </header>
-
-    </div>
-
-    <div class="col-right">
-
         <h2>CRIE SUA CONTA</h2>
 
         <form
@@ -100,7 +100,12 @@
             </div>
         
         </form>
+    </div>
 
+    <div class="col-right">
+        <header>
+            <h1>FastAPI 101</h1>
+        </header>
     </div>
 
 </div>

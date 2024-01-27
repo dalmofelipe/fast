@@ -8,7 +8,8 @@
 
     padding: 0px 20px;
     font-family: Poppins;
-    background-color: white;
+    color: var(--fg-light);
+    background-color: var(--cor-principal);
     /* box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3); */
 }
 
@@ -39,7 +40,7 @@
 }
 
 .logo {
-    color: #353535;
+    color: var(--fg-light);
     font-size: 18px;
 
     display: flex;
@@ -53,11 +54,11 @@
     flex-wrap: nowrap;
 }
 .logo h2 span {
-    color: var(--fg-primary);
+    color: var(--fg-light);
     margin: 0 3px;
 }
 .logo i {
-    color: #444;
+    color: var(--fg-light);
     font-size: 2.25rem;
 }
 
@@ -80,15 +81,15 @@
     margin: 0;
 }
 .menu ul li a {
-    color: #353535;
+    color: var(--fg-light);
     padding: 20px 15px;
     text-decoration: none;
     font-size: 16px;
     transition: color .2s ease;
 }
 .menu ul li a:hover {
-    color: var(--fg-primary);
-    background-color: #fafafa;
+    color: var(--cor-destaque);
+    /* background-color: #fafafa; */
     /* border-radius: 15px; */
-    border-bottom: 3px solid var(--fg-secondary);
+    /* border-bottom: 3px solid var(--fg-light); */
 }
