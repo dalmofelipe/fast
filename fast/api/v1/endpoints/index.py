@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Cookie
 
-from fast.config.environment import settings
+from fast.config.environment import Settings
 
-PORT = settings['PORT']
+PORT = Settings.PORT
 
 routes = APIRouter()
 

@@ -35,8 +35,8 @@ def check_input_user(name, email, password, confirm) -> Union[bool, Dict]:
     if not check_email(email):
         errors['email'] = f'E-mail é inválido'
 
-    if len(password) < 6 or len(password) > 12:
-        errors['password'] = 'A senha deve ter entre 6 e 12 caracteres'
+    if len(password) < 6:
+        errors['password'] = 'A senha deve conter no minimo 6 caracteres!'
 
     if password != confirm:
         errors['confirm_pass'] = 'A senha e a confirmação estão diferentes'

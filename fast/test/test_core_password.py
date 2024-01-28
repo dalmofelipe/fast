@@ -17,5 +17,5 @@ def test_check_not_valid_password():
     
     primary: bool = check_password(pw_primary, hash_secondary)
     secondary: bool = check_password(pw_secondary, hash_primary)
-    # as duas devem ser false
+    
     assert primary == secondary and hash_primary != hash_secondary

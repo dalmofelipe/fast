@@ -1,22 +1,8 @@
 from decouple import config
 
-ENV =  config('ENVIRONMENT', cast=str, default='dev')
 
-settings = {}
+class Settings:
 
-if ENV == 'production':
-    settings = {
-        'DB_PROD': config('DB_PROD'),
-        'DB_HOST': config('DB_HOST'),
-        'DB_PORT': config('DB_PORT'),
-        'DB_NAME': config('DB_NAME'),
-        'DB_USER': config('DB_USER'),
-        'DB_PASS': config('DB_PASS'),
-    }
-else:
-    settings = {
-        'DB_DEV': config('DB_DEV', default="sqlite:///database.sqlite"),
-    }
-
-settings['ENVIRONMENT'] = ENV
-settings['PORT'] = config('PORT', cast=int, default=8000)
+    ENVIRONMENT = config('ENVIRONMENT', cast=str, default='development')
+    DB_STRING_CONN = config('DB_STRING_CONN', cast=str, default="sqlite:///database.sqlite")
+    PORT = config('PORT', cast=int, default=8000)

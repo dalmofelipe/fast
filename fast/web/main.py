@@ -5,9 +5,9 @@ from fastapi.templating import Jinja2Templates
 from fast.api.v1.main import api_v1_routes
 from fast.web.handlers import exception_handlers
 from fast.web.routes.main import web_routes
-from fast.config.environment import settings
+from fast.config.environment import Settings
 
-print(f'INFO:     {settings["ENVIRONMENT"].upper()} Environment')
+print(f'INFO:     {Settings.ENVIRONMENT.upper()} Environment')
 
 
 webapp = FastAPI(

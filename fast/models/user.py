@@ -36,7 +36,7 @@ class User(SQLModel, table=True):
     __tablename__ = 'tb_users'
 
     id: Optional[int] = Field(default=None, primary_key=True)
-    name: str = Field(min_length=3, max_length=20)
+    name: str = Field(min_length=3, max_length=100)
     email: str = Field(unique=True)
     password: str
     created_at: datetime = Field(default_factory=datetime.now)
@@ -50,8 +50,8 @@ class User(SQLModel, table=True):
         if not check_email(email):
             errors['email'] = f'E-mail é inválido'
 
-        if len(password) < 6 or len(password) > 12:
-            errors['password'] = 'A senha deve ter entre 6 e 12 caracteres'
+        if len(password) < 6:
+            errors['password'] = 'A senha deve conter no minimo 6 caracteres!'
 
         if len(errors) > 0: return False, errors
 

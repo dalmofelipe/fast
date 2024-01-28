@@ -3,9 +3,9 @@ from rich import print
 from typing import Optional
 from subprocess import run
 
-from fast.config.environment import settings
+from fast.config.environment import Settings
 
-PORT = settings['PORT']
+PORT = Settings.PORT
 
 cli = Typer(help='CLI FastApi101')
 
