@@ -13,6 +13,15 @@
     align-items: center;
     gap: 20px;
 }
+.error400 a {
+    color: var(--cor-destaque);
+    font-size: 18px;
+    transition: all .2s ease;
+    text-decoration: none;
+}
+.error400 a:hover {
+    color: var(--fg-light);
+}
 </style>
 {% endblock %}
 
@@ -22,6 +31,7 @@
     <h1>404 Not Found</h1>
     <h2>Página não encontrada!</h2>
     
-    <a href="{{ url_for('index') }}">Voltar a Home</a>
+    <a href="{{ url_for('index') }}">
+        <i class="fa-solid fa-angles-left"></i> Voltar a Home</a>
 </div>
 {% endblock %}
