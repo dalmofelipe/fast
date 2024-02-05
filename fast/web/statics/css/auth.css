@@ -8,7 +8,7 @@
     padding: 15px 20px;
     color: var(--fg-dark);
     cursor: pointer;
-    transition: all .2s ease;
+    transition: background .3s ease-in-out, color .3s ease-in-out;
 }
 .btn-primary {
     color: var(--fg-light);
@@ -24,7 +24,7 @@
 }
 .btn-secondary:hover {
     color: var(--fg-light);
-    background-color: #777;
+    background-color: #222;
 }
 
 #app {
@@ -85,7 +85,7 @@
 }
 .form-auth label input {
     color: var(--fg-dark) !important;
-    background-color: var(--fg-light);
+    background-color: white;
     font-family: Poppins;
     padding: 13px;
     font-size: 14px;
@@ -113,9 +113,11 @@
 .form-group p a {
     text-decoration: none;
     color: var(--cor-principal);
+    border-bottom: 2px solid var(--cor-principal);
 }
 .form-group p a:hover {
-    color: var(--hover-destaque);
+    color: var(--hover-principal);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.0);
 }
 .form-validation-error {
     font-size: 13px;

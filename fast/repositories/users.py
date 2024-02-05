@@ -1,3 +1,5 @@
+from typing import List
+
 from sqlmodel import select, text
 from sqlalchemy.exc import NoResultFound
 
@@ -29,15 +31,13 @@ class UserRepository(Base, IUserRepository):
         return user
 
 
-    def get_all(self, offset: int, limit: int, name: str, email: str):
+    def get_all(
+        self, offset: int, limit: int, name: str, email: str
+    )   -> List[User]:
         """ """
         with self.get_session() as session:
             query = (
-                select(
-                    User.id,
-                    User.name,
-                    User.email
-                )
+                select(User.id, User.name, User.email)
                 .offset(offset)
                 .limit(limit)
                 .where(text(f"name like '%{name}%'"))
@@ -47,38 +47,41 @@ class UserRepository(Base, IUserRepository):
         return users
 
 
-    def find_by_email(self, email: str):
+    def find_by_email(
+        self, email: str
+    ) -> User | None:
         """ """
         with self.get_session() as session:
             statement = select(User).where(User.email == email)
             return session.exec(statement).first() or None
 
 
-    def find_by_name(self, name: str):
+    def find_by_name(
+        self, name: str
+    ) -> User:
         """ """
         with self.get_session() as session:
-            statement = select(
-                User.id, 
-                User.name,
-                User.email
-            ).where(User.name == name)
+            statement = select(User.id, User.name, User.email)\
+                .where(User.name == name)
             user = session.exec(statement).first()
             return user
 
 
-    def find_by_id(self, id: str):
+    def find_by_id(
+        self, id: str
+    ) -> User:
         """ """
         with self.get_session() as session:
-            statement = select(
-                User.id, 
-                User.name,
-                User.email
-            ).where(User.id == id)
+            statement = select(User.id, User.name, User.email)\
+                .where(User.id == id)
             user = session.exec(statement).first()
             return user
 
 
-    def update(self, id: int, name: str = None, email: str = None, password: str = None):
+    def update(
+        self, id: int, name: str = None, email: str = None, 
+        password: str = None
+    )   -> User:
         """ """
         user : User = None
 
@@ -105,7 +108,9 @@ class UserRepository(Base, IUserRepository):
         return user
     
     
-    def delete(self, id: int):
+    def delete(
+        self, id: int
+    ) -> int:
         """ """
         user : User = None
 

@@ -13,8 +13,8 @@
 
 :root {
     --cor-destaque: lime;
-    --cor-principal: #008b8b;
-    --hover-principal: #00aaaa;
+    --cor-principal: #006633; /* #008b8b; */
+    --hover-principal: #339933;
     --fg-dark: #353535;
     --fg-light: #fafafa;
     --bg-dark: #555;
