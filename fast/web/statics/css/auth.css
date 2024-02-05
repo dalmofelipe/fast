@@ -62,9 +62,24 @@
 
     background-color: var(--cor-principal);
 }
-@media (max-width: 800px) {
+#app .col-right header {
+    font-size: 2.5rem;
+}
+@media (max-width: 1050px) {
     #app {
-        margin-top: 0px;
+        flex-direction: column-reverse;
+        min-width: 450px;
+    }
+    .col-left {
+        width: 100%;
+        padding: 55px 0px;
+    }
+    .col-right {
+        width: 100%;
+        min-height: 40%;
+    }
+    #app .col-right header {
+        font-size: 1.5rem;
     }
 }
 
